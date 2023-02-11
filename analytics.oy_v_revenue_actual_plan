@@ -1,0 +1,41 @@
+/*
+ * GL Actual vs Plan
+ */
+drop view if exists analytics.oy_v_revenue_actual_plan
+;
+create view analytics.oy_v_revenue_actual_plan as
+select 		l.Year 
+			, l.quater 
+			, l.month 
+			, l.first_date
+			, coalesce(r.No , r1.No) as No
+			, l.Client_Account_Name
+			, l.business_domain , l.GL_Revenue_USD 
+			, r.Year_rev_plan 
+			, r.Quater_rev_plan 
+			, r.Q1_rev_plan , r.Q2_rev_plan , r.Q3_rev_plan , r.Q4_rev_plan
+			, l.Client_ID 
+			, r.HubSpot_ID , r.Domain
+from		analytics.oy_v_sales_plans_gsheet as r 
+full join 	(
+				select 		TO_CHAR(Posting_Date, 'YYYY') as year
+							, CONCAT('Q',TO_CHAR(Posting_Date, 'Q')) as quater
+							, TO_CHAR(Posting_Date, 'Mon') as month
+							, LAST_DAY(ADD_MONTHS(Posting_Date, -1)) + 1 as first_date
+							, Client_ID
+							, Client_Account_Name
+							, business_domain
+							, sum(Revenue_USD) as GL_Revenue_USD
+				from 		standard.odoo_gl_revenue
+				where 		1=1
+							AND Revenue_USD > 0
+				group by	1,2,3,4,5,6,7
+			) as l
+on 			l.Client_ID = r.Odoo_ID and l.year = r.year and l.Quater = r.Quater 
+left join	(select distinct No , Odoo_ID , Customer_Name from analytics.oy_v_sales_plans_gsheet) as r1
+on			l.Client_ID = r1.Odoo_ID
+where 		1=1
+			and l.Client_ID in (select distinct Odoo_ID from analytics.oy_v_sales_plans_gsheet)	
+			and l.Client_Account_Name in (select distinct Customer_Name from analytics.oy_v_sales_plans_gsheet)	-- "Mobile Telecommunications Company - Zain Saudi Arabia" is not in the list
+order by 	r.No, first_date
+;
