@@ -16,7 +16,7 @@ select 		l.Year
 			, r.Q1_rev_plan , r.Q2_rev_plan , r.Q3_rev_plan , r.Q4_rev_plan
 			, l.Client_ID 
 			, r.HubSpot_ID , r.Domain
-from		analytics.oy_v_sales_plans_gsheet as r 
+from		(select * from analytics.oy_sales_plans_gsheet where No<>3) as r 
 full join 	(
 				select 		TO_CHAR(Posting_Date, 'YYYY') as year
 							, CONCAT('Q',TO_CHAR(Posting_Date, 'Q')) as quater
@@ -32,10 +32,9 @@ full join 	(
 				group by	1,2,3,4,5,6,7
 			) as l
 on 			l.Client_ID = r.Odoo_ID and l.year = r.year and l.Quater = r.Quater 
-left join	(select distinct No , Odoo_ID , Customer_Name from analytics.oy_v_sales_plans_gsheet) as r1
+left join	(select distinct No, Odoo_ID, Customer_Name from analytics.oy_sales_plans_gsheet where No<>3) as r1
 on			l.Client_ID = r1.Odoo_ID
 where 		1=1
-			and l.Client_ID in (select distinct Odoo_ID from analytics.oy_v_sales_plans_gsheet)	
-			and l.Client_Account_Name in (select distinct Customer_Name from analytics.oy_v_sales_plans_gsheet)	-- "Mobile Telecommunications Company - Zain Saudi Arabia" is not in the list
+			and l.Client_ID in (select distinct Odoo_ID from analytics.oy_sales_plans_gsheet)	
 order by 	r.No, first_date
 ;
