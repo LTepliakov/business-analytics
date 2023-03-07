@@ -1,4 +1,4 @@
-drop view if exists analytics.oy_v_GL_profit_loss
+drop view if exists analytics.oy_v_GL_profit_loss --drop the table first
 ;
 create view analytics.oy_v_GL_profit_loss as
 select			case 	when aa.name = 	'Conversation Revenue'	THEN 	'Conversation'
