@@ -1,0 +1,82 @@
+select 
+a1.account_nk as UC_Account_ID_L0,
+a1.pd_user_account_name as UC_Account_Name_L0,
+a1.pd_user_user_name as UC_UserName_L0,
+a1.charging_id as Charging_ID_L0,
+p1.id as Odoo_ID_L0,
+p1.name as Odoo_Account_Name_L0,
+-- p1.cr as Odoo_CR_L0,
+-- p1.ref as Odoo_Reference_L0,
+
+
+a2.account_nk as 'UC_Account_ID_L+1',
+a2.pd_user_account_name as 'Account_Name_L+1',
+a2.pd_user_user_name as 'UC_UserName_L+1',
+a2.charging_id as 'Charging_ID_L+1',
+p2.id as 'Odoo_ID_L+1',
+p2.name as 'Odoo_Account_Name_L+1',
+-- p2.cr as 'Odoo_CR_L+1',
+-- p2.ref as 'Odoo_Reference_L+1',
+
+
+a3.account_nk as 'UC_Account_ID_L+2',
+a3.pd_user_account_name as 'UC_Account_Name_L+2',
+a3.pd_user_user_name as 'UC_UserName_L+2',
+a3.charging_id as 'Charging_ID_L+2',
+p3.id as 'Odoo_ID_L+2',
+p3.name as 'Odoo_Account_Name_L+2',
+-- p3.cr as 'Odoo_CR_L+2',
+-- p3.ref as 'Odoo_Reference_L+2',
+
+
+a4.account_nk as 'UC_Account_ID_L+3',
+a4.pd_user_account_name as 'UC_Account_Name_L+3',
+a4.pd_user_user_name as 'UC_UserName_L+3',
+a4.charging_id as 'Charging_ID_L+3',
+p4.id as 'Odoo_ID_L+3',
+p4.name as 'Odoo_Account_Name_L+3',
+-- p4.cr as 'Odoo_CR_L+3',
+-- p4.ref as 'Odoo_Reference_L+3',
+
+
+COALESCE (
+to_char(p4.id), a4.account_nk,
+to_char(p3.id), a3.account_nk,
+to_char(p2.id), a2.account_nk,
+to_char(p1.id), a1.account_nk) as Master_Account_ID,
+
+
+COALESCE (
+p4.name, a4.pd_user_account_name,
+p3.name, a3.pd_user_account_name,
+p2.name, a2.pd_user_account_name,
+p1.name, a1.pd_user_account_name) as Master_Account_Name,
+
+
+case 
+when p4.id is not null then  'Odoo_L+3'
+when p4.id is null and a4.account_nk is not null then  'UC_L+3'
+
+when p4.id is null and a4.account_nk is null and p3.id is not null then  'Odoo_L+2'
+when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is not null then  'UC_L+2'
+
+when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is not null then  'Odoo_L+1'
+when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is not null then  'UC_L+1'
+
+when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is null and p1.id is not null then   'Odoo_L0'
+when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is null and p1.id is null and a1.account_nk is not null then  'UC_L0'
+else null
+end as Master_Account_Origin
+
+
+from standard.dim_accounts a1 
+left join raw.odoo__res_partner p1 on p1.id=a1.erp_id 
+
+left join standard.dim_accounts a2 on a1.parent_account_nk=a2.account_nk 
+left join raw.odoo__res_partner p2 on p2.id=a2.erp_id 
+
+left join standard.dim_accounts a3 on a2.parent_account_nk=a3.account_nk 
+left join raw.odoo__res_partner p3 on p3.id=a3.erp_id 
+
+left join standard.dim_accounts a4 on a3.parent_account_nk=a4.account_nk 
+left join raw.odoo__res_partner p4 on p4.id=a4.erp_id 
