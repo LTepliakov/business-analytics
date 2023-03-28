@@ -1,3 +1,4 @@
+
 select 
 a1.account_nk as UC_Account_ID_L0,
 a1.pd_user_account_name as UC_Account_Name_L0,
@@ -40,31 +41,38 @@ p4.name as 'Odoo_Account_Name_L+3',
 
 
 COALESCE (
-to_char(p4.id), a4.account_nk,
-to_char(p3.id), a3.account_nk,
-to_char(p2.id), a2.account_nk,
-to_char(p1.id), a1.account_nk) as Master_Account_ID,
+to_char(p4.id), 
+to_char(p3.id),
+to_char(p2.id),
+to_char(p1.id),
+a4.account_nk,
+a3.account_nk,
+a2.account_nk,
+a1.account_nk) as Master_Account_ID,
 
 
 COALESCE (
-p4.name, a4.pd_user_account_name,
-p3.name, a3.pd_user_account_name,
-p2.name, a2.pd_user_account_name,
-p1.name, a1.pd_user_account_name) as Master_Account_Name,
+p4.name, 
+p3.name, 
+p2.name, 
+p1.name, 
+a4.pd_user_account_name,
+a3.pd_user_account_name,
+a2.pd_user_account_name,
+a1.pd_user_account_name) as Master_Account_Name,
 
 
 case 
 when p4.id is not null then  'Odoo_L+3'
-when p4.id is null and a4.account_nk is not null then  'UC_L+3'
+when p4.id is null and p3.id is not null then  'Odoo_L+2'
+when p4.id is null and p3.id is null and p2.id is not null then  'Odoo_L+1'
+when p4.id is null and p3.id is null and p2.id is null and p1.id is not null then   'Odoo_L0'
 
-when p4.id is null and a4.account_nk is null and p3.id is not null then  'Odoo_L+2'
-when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is not null then  'UC_L+2'
+when p4.id is null and p3.id is null and p2.id is null and p1.id is null and a4.account_nk is not null then   'UC_L+3'
+when p4.id is null and p3.id is null and p2.id is null and p1.id is null and a4.account_nk is null and a3.account_nk is not null then   'UC_L+2'
+when p4.id is null and p3.id is null and p2.id is null and p1.id is null and a4.account_nk is null and a3.account_nk is null and a2.account_nk is not null then  'UC_L+1'
+when p4.id is null and p3.id is null and p2.id is null and p1.id is null and a4.account_nk is null and a3.account_nk is null and a2.account_nk is null and a1.account_nk is not null then  'UC_L0'
 
-when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is not null then  'Odoo_L+1'
-when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is not null then  'UC_L+1'
-
-when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is null and p1.id is not null then   'Odoo_L0'
-when p4.id is null and a4.account_nk is null and p3.id is null and a3.account_nk is null and p2.id is null and a2.account_nk is null and p1.id is null and a1.account_nk is not null then  'UC_L0'
 else null
 end as Master_Account_Origin
 
