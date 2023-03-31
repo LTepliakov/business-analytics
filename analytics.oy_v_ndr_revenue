@@ -13,7 +13,7 @@ left join	(
 							(
 								select 		Client_ID ,Client_Account_Name, year, business_domain, SUM(Revenue_USD) as Revenue_USD
 								from 		analytics.oy_v_GL_revenue_all_domains
-								where 		Revenue_USD > 0 and (year = 2021 or year = 2022)
+								where 		year = 2021 or year = 2022
 								group by 	1,2,3,4
 								order by 	Client_Account_Name, year
 							)x
@@ -27,7 +27,7 @@ left join	(
 							(
 								select 		Client_ID ,Client_Account_Name, year, business_domain, SUM(Revenue_USD) as Revenue_USD
 								from 		analytics.oy_v_GL_revenue_all_domains
-								where 		Revenue_USD > 0 and (year = 2022 or year = 2023)
+								where 		year = 2022 or year = 2023
 								group by 	1,2,3,4
 								order by 	Client_Account_Name, year
 							)x
