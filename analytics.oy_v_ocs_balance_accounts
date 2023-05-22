@@ -4,7 +4,7 @@ create view analytics.oy_v_ocs_balance_accounts as
 select 			a.*
 				, b.account_id as charging_id 
 				, da.pd_user_account_name, da.pd_user_user_name
-				, lm.Master_Account_Name, lm.Master_Account_ID
+				, lm.Master_Account_Name, lm.Master_Account_ID, da.pd_user_id 
 				, ca.units as YTD_units_23, ca.charge as YTD_charge_23, round(ca.cdr_revenue,2) as YTD_revenue_23
 from 			(select* from raw.ocs__balance) as a
 left join		raw.ocs__account as b
