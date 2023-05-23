@@ -1,9 +1,9 @@
-drop table if exists analytics.oy_ocs__balance
+drop table analytics.oy_ocs__balance
 ;
 create table analytics.oy_ocs__balance as
 select 	*
-		, case 	when 	split_part(selling_rate,'USD',1)::float > 0 and split_part(selling_rate,'USD',1)::float<>1 
-						then left(split_part(selling_rate,'USD',1), 6)::float 
+		, case 	when 	split_part(selling_rate,'USD',1)::numeric(10,8) > 0 and split_part(selling_rate,'USD',1)::numeric(10,8)<>1 
+						then left(split_part(selling_rate,'USD',1), 10)::numeric(10,8) 
 				else 	null 
 		  end as raw_selling_rate
 from 	raw.ocs__balance 
@@ -13,8 +13,8 @@ where 	1=1
 -----
 union
 select 	*
-		, case 	when 	split_part(selling_rate,'SAR',1)::float > 0 and split_part(selling_rate,'SAR',1)::float<>1
-						then left(split_part(selling_rate,'SAR',1), 6)::float 
+		, case 	when 	split_part(selling_rate,'SAR',1)::numeric(10,8) > 0 and split_part(selling_rate,'SAR',1)::numeric(10,8)<>1
+						then left(split_part(selling_rate,'SAR',1), 10)::numeric(10,8) 
 				else 	null 
 		  end as raw_selling_rate
 from 	raw.ocs__balance 
@@ -24,7 +24,7 @@ where 	1=1
 -----
 union
 select 	*
-		, SELLING_RATE::float as raw_selling_rate
+		, SELLING_RATE::numeric(10,8) as raw_selling_rate
 from 	raw.ocs__balance 
 where 	1=1 
 		and SELLING_RATE is null	
