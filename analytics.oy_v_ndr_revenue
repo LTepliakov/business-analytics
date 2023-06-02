@@ -1,6 +1,6 @@
 drop view if exists analytics.oy_v_ndr_revenue
 ;
---create view analytics.oy_v_ndr_revenue as 
+create view analytics.oy_v_ndr_revenue as 
 select 		l.*		
 			, case when NDR_22.cnt > 1 then 1 else 0 end as NDR_22
 			, case when NDR_23.cnt > 1 then 1 else 0 end as NDR_23
