@@ -135,7 +135,16 @@ select 		report_month
 			, cdr_selling_rate
 			, analytics_selling_rate
 			, parent_selling_rate
+			, tm.hs_team , tm.hs_manager
 from 		base
+left join 	(
+				select 		distinct
+							odoo_id, odoo_name, email, hs_team, hs_manager, hs_email
+				from 		analytics.oy_v_odoo_hs_team_manager
+				where 		hs_team is not null and hs_manager is not null
+				order by 	hs_manager
+			)as tm 
+on 			tm.odoo_id = base.Master_Account_ID
 where 		1=1
 order by 	charging_id, date_nk
 ;
