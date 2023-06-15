@@ -1,6 +1,8 @@
 drop view if exists analytics.lm_v_master_account_mapping
 ;
 create view analytics.lm_v_master_account_mapping as
+with base as
+(
 SELECT 			a1.account_nk AS UC_Account_ID_L0,
 		        a1.pd_user_account_name AS UC_Account_Name_L0,
 		        a1.pd_user_user_name AS UC_UserName_L0,
@@ -45,4 +47,10 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
  LEFT  JOIN 	standard.dim_accounts a3 ON ((a2.parent_account_nk = a3.account_nk))) 
  LEFT  JOIN 	raw.odoo__res_partner p3 ON ((p3.id = a3.erp_id))) 
  LEFT  JOIN 	standard.dim_accounts a4 ON ((a3.parent_account_nk = a4.account_nk))) 
- LEFT  JOIN 	raw.odoo__res_partner p4 ON ((p4.id = a4.erp_id)));
+ LEFT  JOIN 	raw.odoo__res_partner p4 ON ((p4.id = a4.erp_id)))
+ )
+ select 		*
+				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then '10626' else null end as manual_odoo_id
+				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then 'Careem Networks FZ LLC' else null end as manual_odoo_name
+ from  			base
+ ;
