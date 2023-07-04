@@ -11,6 +11,7 @@ select 			count(hc.name) over (partition by hc.name, ht.name) as cnt,
 				, case when hc.name = 'Mobile telecommunication Company Saudi arabia Zain KSA' then 'Nawaf Alharbi' else ow.first_name||' '||ow.last_name end as manager
 				, case when hc.name = 'Mobile telecommunication Company Saudi arabia Zain KSA' then 'nalharbi@unifonic.com' else ow.email end as email
 				, hc.customer_support_manager
+				, hc.tcsm_manager
 				, hc.hubspot_team_id
 				, hc.hubspot_owner_id
 from 			(select * from raw.hubspot__companies) as hc
@@ -35,6 +36,7 @@ select 		distinct
 			, coalesce(l1.manager, l2.manager) as hs_manager
 			, coalesce(l1.email, l2.email) as hs_email
 			, coalesce(l1.customer_support_manager, l2.customer_support_manager) as cs_manager
+			, coalesce(l1.tcsm_manager, l2.tcsm_manager) as tcsm_manager
 from 		(select * from raw.odoo__res_partner) as orp
 left join 	(
 			select * from base 
