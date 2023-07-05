@@ -1,0 +1,20 @@
+version: 2
+
+exposures:
+
+  - name: Live_Revenue
+    #label: Jaffles by the Week              # optional, new in dbt Core v1.3
+    type: dashboard                         # required
+    #maturity: high                          # optional
+    url: https://tableau.data.ksa-1.oci.cloud.unifonic.com/#/views/LiveRevenue/LiveRevenue       # optional
+    description: >                          # optional
+      This is the Live Revenue ddashboard feed updated on daily basis.
+
+    depends_on:                             # expected
+      - ref('oy_dbt_revenue_daily_enriched')
+      #- source('analytics', 'oy_v_GL_revenue_reference') #tables names
+      #metric('consumption', 'selling_rates')
+
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com

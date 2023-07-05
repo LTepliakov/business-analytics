@@ -1,0 +1,37 @@
+
+version: 2
+
+models:
+  - name: oy_dbt_ocs_balance
+    description: "Cleansed OCS selling rates daily snapshot"
+    columns:
+      - name: raw_selling_rate
+        description: "OCS selling rate"
+        # tests:
+        #   - unique
+        #   - not_null
+
+#   - name: oy_dbt_ranking_sell_rates
+#     description: "A starter dbt model"
+#     columns:
+#       - name: id
+#         description: "The primary key for this table"
+#         tests:
+#           - unique
+#           - not_null
+#   - name: oy_dbt_selling_rates_imputed
+#     description: "A starter dbt model"
+#     columns:
+#       - name: id
+#         description: "The primary key for this table"
+#         tests:
+#           - unique
+#           - not_null
+  # - name: oy_dbt_revenue_daily_enriched
+  #   description: "A starter dbt model"
+  #   columns:
+  #     - name: id
+  #       description: "The primary key for this table"
+  #       tests:
+  #         - unique
+  #         - not_null

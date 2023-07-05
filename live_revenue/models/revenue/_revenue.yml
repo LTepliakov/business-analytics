@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: oy_dbt_consumption
+    description: "Aggregate consumption table."

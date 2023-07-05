@@ -1,0 +1,59 @@
+version: 2
+
+sources:
+  - name: standard
+    config:
+      enabled: true
+    description: 'standard schema source tables.'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_accounts
+        description: 'Accounts details.'
+        config:
+          enabled: true
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_v_master_account_mapping
+        description: 'Odoo-UC accounts mapping.'
+        config:
+          enabled: true
+      - name: oy_v_GL_revenue_reference
+        description: 'Accounting Revenue from the General Ledger.'
+        config:
+          enabled: true
+      - name: oy_v_odoo_hs_team_manager
+        description: 'Hubspot-UC mapping of UC accounts against HS Teams and Account Managers.'
+        config:
+          enabled: true
+  - name: raw
+    config:
+      enabled: true
+    description: 'raw schema source tables.'
+    database: verticadb
+    schema: raw
+    tables:
+      - name: ocs__balance
+        description: 'Daily balance snapshot from OCS.'
+        config:
+          enabled: true
+      - name: ocs__account
+        description: 'The table with charging_id to link ocs__balance table with the UC consumption.'
+        config:
+          enabled: true
+  - name: aggregate
+    config:
+      enabled: true
+    description: 'aggregate schema source tables.'
+    database: verticadb
+    schema: aggregate
+    tables:
+      - name: fact_sms_consumption_aggregate
+        description: 'UC aggregate consumption.'
+        config:
+          enabled: true
