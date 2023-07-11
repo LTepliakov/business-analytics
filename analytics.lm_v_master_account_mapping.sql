@@ -50,7 +50,13 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
  LEFT  JOIN 	raw.odoo__res_partner p4 ON ((p4.id = a4.erp_id)))
  )
  select 		*
-				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then '10626' else null end as manual_odoo_id
-				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then 'Careem Networks FZ LLC' else null end as manual_odoo_name
+				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then '10626'
+					   when Charging_ID_L0 in ('10005927') then '3762'
+					   else null 
+				  end as manual_odoo_id
+				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then 'Careem Networks FZ LLC'
+				 	   when Charging_ID_L0 in ('10005927') then 'Tatweer Educational Technologies Company - TETCO'
+					   else null 
+				  end as manual_odoo_name
  from  			base
  ;
