@@ -37,9 +37,9 @@ select * from analytics.oy_dbt_sales_plans_gsheet
 except
 select * from sandbox.oy_sales_plans_gsheet order by No
 ;
-select * from analytics.oy_dbt_revenue_daily_enriched
+select * from analytics.oy_dbt_revenue_daily_enriched order by date_nk  desc
 except
-select * from analytics.oy_revenue_daily_enriched
+select * from analytics.oy_revenue_daily_enriched order by date_nk desc
 ;
 
 --DROP ANALYTICS
@@ -63,6 +63,6 @@ select * from analytics.oy_special_accounts
 ;
 --##########################################################################################
 
-
+select max() from aggregate.fact_sms_consumption_aggregate
 
 
