@@ -59,6 +59,7 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   when Charging_ID_L0 in ('10000297') then '3374'
 					   when Charging_ID_L0 in ('20003684', '20005029') then '10857'
 					   when Charging_ID_L0 in ('20002128') then '3704'
+					   when Charging_ID_L0 in ('20000934') then '5147'
 					   else null 
 				  end as manual_odoo_id
 				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then 'Careem Networks FZ LLC'
@@ -70,6 +71,7 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   when Charging_ID_L0 in ('10000297') then 'Rawabi Majd International Company for Production and Distribution Ltd. - Al-Majd TV'
 					   when Charging_ID_L0 in ('20003684', '20005029') then 'Food Basics Trading Company - Hamburgini'
 					   when Charging_ID_L0 in ('20002128') then 'Aram Meem Trading Services Company - Toyou'
+					   when Charging_ID_L0 in ('20000934') then 'Mobile Telecommunications Company - Zain Saudi Arabia'
 					   else null 
 				  end as manual_odoo_name
  from  			base
