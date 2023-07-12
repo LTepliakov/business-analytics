@@ -54,12 +54,14 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   when Charging_ID_L0 in ('10005927') then '3762'
 					   when Charging_ID_L0 in ('10005710', '10005891', '20004828', '20000163') then '4112'
 					   when Charging_ID_L0 in ('20001516') then '3168'
+					   when Charging_ID_L0 in ('10000326') then '4154'
 					   else null 
 				  end as manual_odoo_id
 				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then 'Careem Networks FZ LLC'
 				 	   when Charging_ID_L0 in ('10005927') then 'Tatweer Educational Technologies Company - TETCO'
 					   when Charging_ID_L0 in ('10005710', '10005891', '20004828', '20000163') then 'Saudi Manpower Solutions Co.'
 					   when Charging_ID_L0 in ('20001516') then 'Azim Technical Financial Company Ltd.'
+					   when Charging_ID_L0 in ('10000326') then 'Takamol Holding'
 					   else null 
 				  end as manual_odoo_name
  from  			base
