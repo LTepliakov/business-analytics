@@ -39,15 +39,27 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 		        		WHEN ((p4.id IS NULL) AND (p3.id IS NULL) AND (p2.id IS NULL) AND (p1.id IS NULL) AND (a4.account_nk IS NULL) AND (a3.account_nk IS NULL) AND (a2.account_nk IS NOT NULL)) THEN 'UC_L+1'::varchar(6) 
 		        		WHEN ((p4.id IS NULL) AND (p3.id IS NULL) AND (p2.id IS NULL) AND (p1.id IS NULL) AND (a4.account_nk IS NULL) AND (a3.account_nk IS NULL) AND (a2.account_nk IS NULL) AND (a1.account_nk IS NOT NULL)) THEN 'UC_L0'::varchar(5) 
 		        		ELSE NULL 
-		        END AS Master_Account_Origin
- FROM 			(((((((standard.dim_accounts a1 
- LEFT  JOIN 	raw.odoo__res_partner p1 ON ((p1.id = a1.erp_id))) 
- LEFT  JOIN 	standard.dim_accounts a2 ON ((a1.parent_account_nk = a2.account_nk))) 
- LEFT  JOIN 	raw.odoo__res_partner p2 ON ((p2.id = a2.erp_id))) 
- LEFT  JOIN 	standard.dim_accounts a3 ON ((a2.parent_account_nk = a3.account_nk))) 
- LEFT  JOIN 	raw.odoo__res_partner p3 ON ((p3.id = a3.erp_id))) 
- LEFT  JOIN 	standard.dim_accounts a4 ON ((a3.parent_account_nk = a4.account_nk))) 
- LEFT  JOIN 	raw.odoo__res_partner p4 ON ((p4.id = a4.erp_id)))
+		        END AS Master_Account_Origin,
+                coalesce(a4.account_nk,a3.account_nk,a2.account_nk) as UC_Super_Parent_ID,
+                coalesce(a4.pd_user_account_name,a3.pd_user_account_name,a2.pd_user_account_name) as UC_Super_Parent_Name,
+                coalesce(a4.pd_user_user_name,a3.pd_user_user_name,a2.pd_user_user_name) as UC_Super_Parent_Username,
+                case 	when a2.account_nk is null then 'Main Account' else 'Sub-Account' end as Main_Sub_Flag 
+ FROM 			(((((((
+                standard.dim_accounts as a1 
+                LEFT JOIN 	raw.odoo__res_partner as p1 ON ((p1.id = a1.erp_id))
+                ) 
+                LEFT JOIN 	standard.dim_accounts as a2 ON ((a1.parent_account_nk = a2.account_nk))
+                )
+                LEFT JOIN 	raw.odoo__res_partner as p2 ON ((p2.id = a2.erp_id))
+                ) 
+                LEFT JOIN 	standard.dim_accounts as a3 ON ((a2.parent_account_nk = a3.account_nk))
+                ) 
+                LEFT JOIN 	raw.odoo__res_partner as p3 ON ((p3.id = a3.erp_id))
+                ) 
+                LEFT JOIN 	standard.dim_accounts as a4 ON ((a3.parent_account_nk = a4.account_nk))
+                )
+                LEFT JOIN 	raw.odoo__res_partner as p4 ON ((p4.id = a4.erp_id))
+                )
  )
  select 		*
 				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then '10626'
@@ -75,4 +87,3 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   else null 
 				  end as manual_odoo_name
  from  			base
- ;
