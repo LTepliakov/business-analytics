@@ -154,6 +154,7 @@ select 		id, parent_balance_id as parent_id
 					when Master_Account_ID = 3168 and ingestion_date<='2023-07-31' then 0.0112 -- Azim Technical Financial Company Ltd.
 					when Master_Account_ID = 3469 and ingestion_date<='2023-07-31' then  0.03866667 -- Lazurde Company for Jewellery
 					when Master_Account_ID = 10368 and ingestion_date<='2023-07-31' then  0.01013333 -- Sondoq Alaibtikar for information and technology
+					when Master_Account_ID = 3965 and ingestion_date<='2023-07-31' then 0.013333 -- Kingdom Resources Trading Company - Sendebad
 					when Master_Account_ID = 3704 and ingestion_date<='2023-07-31' then 0.0105333  -- Aram Meem Trading Services Company - Toyou
 					else null
 			  end as manual_sell_rate
