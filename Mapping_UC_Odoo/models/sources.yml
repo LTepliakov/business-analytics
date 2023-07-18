@@ -1,0 +1,25 @@
+version: 2
+
+sources:
+  - name: raw
+    config:
+      enabled: true
+    description: 'raw schema tables'
+    database: verticadb
+    schema: raw
+    tables:
+      - name: odoo__res_partner
+        description: 'Odoo accounts details.'
+        config:
+          enabled: true
+  - name: standard
+    config:
+      enabled: true
+    description: 'anastandardl schema tables'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_accounts
+        description: 'Standard accounts.'
+        config:
+          enabled: true
