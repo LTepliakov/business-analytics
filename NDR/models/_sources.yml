@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema tables'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: oy_v_GL_revenue_all_domains
+        description: 'Revenue by accounts and domains.'
+        config:
+          enabled: true
+      - name: oy_v_odoo_hs_team_manager
+        description: 'Odoo Hubspot mapping.'
+        config:
+          enabled: true
+  - name: sandbox
+    config:
+      enabled: true
+    description: 'sandbox schema tables'
+    database: verticadb
+    schema: sandbox
+    tables:
+      - name: oy_sales_plans_gsheet
+        description: 'Top 40Clients.'
+        config:
+          enabled: true

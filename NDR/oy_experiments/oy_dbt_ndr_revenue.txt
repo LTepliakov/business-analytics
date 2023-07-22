@@ -1,0 +1,57 @@
+with rev as 
+(
+select 			rev.*
+				, ndr23.NDR_23 
+				, ndr22.NDR_22
+from 			{{ ref('oy_dbt_ndr_ytd_revenue')}} as rev -- analytics.oy_dbt_ndr_ytd_revenue
+----------------
+left join 		{{ ref('oy_dbt_ndr_2023_flag')}} as ndr23 -- analytics.oy_dbt_ndr_2023_flag
+on 				rev.Client_ID = ndr23.Client_ID
+				and rev.Client_Account_Name = ndr23.Client_Account_Name
+				and rev.business_domain = ndr23.business_domain
+				and rev.Year = '2023'
+				and rev.month = ndr23.month
+----------------
+left join 		{{ ref('oy_dbt_ndr_2022_flag')}} as ndr22 -- analytics.oy_dbt_ndr_2022_flag
+on 				rev.Client_ID = ndr22.Client_ID
+				and rev.Client_Account_Name = ndr22.Client_Account_Name
+				and rev.business_domain = ndr22.business_domain
+				and rev.Year = '2022'
+				and rev.month = ndr22.month
+----------------
+where 			1=1
+order by  		rev.Year
+),
+hs as
+(
+select 			distinct
+				odoo_id, odoo_name, email, hs_team, hs_manager, hs_email
+from 			{{ source('analytics', 'oy_v_odoo_hs_team_manager')}} -- analytics.oy_v_odoo_hs_team_manager
+where 			hs_team is not null and hs_manager is not null
+order by 		hs_manager
+),
+rev_hs as
+(
+select 			rev.*, hs.hs_team, hs.hs_manager
+from 			rev
+left join		hs
+on 				rev.Client_ID = hs.odoo_id
+),
+top40 as 
+(
+select 			No, "Odoo ID" 
+from 			{{ source('sandbox', 'oy_sales_plans_gsheet')}} -- sandbox.oy_sales_plans_gsheet 
+where 			No<>3 order by No
+)
+select 			rev_hs.*
+				, YTD_Revenue*NDR_23 as NDR_Revenue_23
+				, YTD_Revenue*NDR_22 as NDR_Revenue_22
+				, case when lag_YTD_Rev is null or lag_YTD_Rev=0 or month(First_date)>=month(now())
+					   then null else round(100*YTD_Revenue*NDR_23/lag_YTD_Rev,2) end as NDR_23_pct
+				, top40.No
+				, case when top40.No is not NULL then 'Top 40' else NULL end as client_rnk
+from 			rev_hs
+left join		top40
+on 				rev_hs.Client_ID = top40."Odoo ID"
+
+2022-10-01	2022	Oct	10660	AL AIN FOOD & BEVERAGES P.J.S.C. (an Agthia Group Company)	SMS	

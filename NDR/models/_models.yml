@@ -1,0 +1,21 @@
+
+version: 2
+
+models:
+  - name: oy_dbt_ndr_accounts_dates
+    description: "Add description"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+#         tests:
+#           - unique
+#           - not_null
+
+  - name: oy_dbt_ndr_revenue
+    description: "Add description"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+#         tests:
+#           - unique
+#           - not_null
