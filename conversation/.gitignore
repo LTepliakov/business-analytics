@@ -1,4 +1,4 @@
-
-target/
+target/compiled
+target/run
 dbt_packages/
 logs/

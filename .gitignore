@@ -20,7 +20,8 @@ dist/
 *.jar
 
 # Maven
-target/
+target/compiled
+target/run
 dist/
 
 # JetBrains IDE
