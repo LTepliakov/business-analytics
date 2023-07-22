@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: standard
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_accounts
+      - name: fact_conversation
+  - name: raw
+    database: verticadb
+    schema: raw
+    tables:
+      - name: conversation__whatsapp_conversation_based_charge
+  - name: aggregate
+    database: verticadb
+    schema: aggregate
+    tables:
+      - name: fact_campaigns
+  - name: analytics
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_dbt_master_account_mapping

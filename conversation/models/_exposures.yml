@@ -1,0 +1,33 @@
+
+version: 2
+
+exposures:
+
+  - name: conversation_performance
+    label: Conversation Performance
+    type: dashboard
+    maturity: high
+    url: https://tableau.data.ksa-1.oci.cloud.unifonic.com/#/workbooks/111?:origin=card_share_link
+    description: >
+      Actual performance against targets.
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com
+    depends_on:
+      - ref('oy_dbt_conversation_messages')
+      - ref('oy_dbt_conversation_wtsap_cost_and_conversations')
+
+  - name: conversation_snapshot
+    label: Conversation Snapshot
+    type: dashboard
+    maturity: high
+    url: https://tableau.data.ksa-1.oci.cloud.unifonic.com/#/workbooks/17?:origin=card_share_link
+    description: >
+      Conversation KPIs on monthly basis.
+    owner:
+      name: Laurent Mang
+      email: lmang@unifonic.com
+    depends_on:
+      - ref('oy_dbt_conversation_messages')
+      - ref('oy_dbt_conversation_wtsap_cost_and_conversations')
+      - ref('oy_dbt_conversation_campaigns')
