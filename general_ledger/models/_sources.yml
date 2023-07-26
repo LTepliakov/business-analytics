@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    database: verticadb
+    schema: raw
+    tables:
+      - name: odoo__account_move_line
+      - name: odoo__res_partner
+      - name: odoo__account_account
+      - name: odoo__res_currency
+      - name: odoo__res_company
+      - name: odoo__res_country
+  - name: analytics
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: oy_v_odoo_hs_team_manager
