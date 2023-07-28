@@ -1,0 +1,14 @@
+version: 2
+
+analyses:
+  - name: analysis
+    docs: 
+      show: false
+
+  - name: selling_rates_original
+    docs: 
+      show: false
+
+  - name: tests_manual
+    docs: 
+      show: false

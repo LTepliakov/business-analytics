@@ -1,4 +1,4 @@
-{{config (materialized='table')}} 
+{{ config (materialized='table', docs={'node_color':'black'}) }} 
 
 with base as
 (

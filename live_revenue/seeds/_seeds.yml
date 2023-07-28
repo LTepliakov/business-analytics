@@ -1,0 +1,9 @@
+# version: 2
+
+# seeds:
+#   - name: oy_dbt_sales_plans_gsheet
+#     docs:
+#       node_color: 'orange'
+#   - name: oy_dbt_special_accounts
+#     docs:
+#       node_color: 'orange'
