@@ -1,3 +1,10 @@
+
+drop view if exists analytics.lm_v_tableau_master_consumption_aggregate
+;
+create view analytics.lm_v_tableau_master_consumption_aggregate as
+
+
+
 Select 
             date_trunc('day',hour_nk)::DATE as Date, 
             action as Action,
