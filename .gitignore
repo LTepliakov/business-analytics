@@ -23,6 +23,7 @@ dist/
 target/compiled
 target/run
 dist/
+.vscode
 
 # JetBrains IDE
 .idea/
