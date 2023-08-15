@@ -1,30 +1,32 @@
+
 drop view if exists analytics.lm_v_master_account_mapping
 ;
 create view analytics.lm_v_master_account_mapping as
+
 with base as
 (
 SELECT 			a1.account_nk AS UC_Account_ID_L0,
 		        a1.pd_user_account_name AS UC_Account_Name_L0,
-		        a1.pd_user_user_name AS UC_UserName_L0,
+		        u1.user_email AS UC_UserName_L0,
 		        a1.pd_user_country as UC_Account_Country_L0,   -- NEW
 		        a1.charging_id AS Charging_ID_L0,
 		        p1.id AS Odoo_ID_L0,
 		        p1.name AS Odoo_Account_Name_L0,
 		        a2.account_nk AS "UC_Account_ID_L+1",
 		        a2.pd_user_account_name AS "Account_Name_L+1",
-		        a2.pd_user_user_name AS "UC_UserName_L+1",
+		        u2.user_email  AS "UC_UserName_L+1",
 		        a2.charging_id AS "Charging_ID_L+1",
 		        p2.id AS "Odoo_ID_L+1",
 		        p2.name AS "Odoo_Account_Name_L+1",
 		        a3.account_nk AS "UC_Account_ID_L+2",
 		        a3.pd_user_account_name AS "UC_Account_Name_L+2",
-		        a3.pd_user_user_name AS "UC_UserName_L+2",
+		        u3.user_email  AS "UC_UserName_L+2",
 		        a3.charging_id AS "Charging_ID_L+2",
 		        p3.id AS "Odoo_ID_L+2",
 		        p3.name AS "Odoo_Account_Name_L+2",
 		        a4.account_nk AS "UC_Account_ID_L+3",
 		        a4.pd_user_account_name AS "UC_Account_Name_L+3",
-		        a4.pd_user_user_name AS "UC_UserName_L+3",
+		        u4.user_email  AS "UC_UserName_L+3",
 		        a4.charging_id AS "Charging_ID_L+3",
 		        p4.id AS "Odoo_ID_L+3",
 		        p4.name AS "Odoo_Account_Name_L+3",
@@ -40,26 +42,30 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 		        		WHEN ((p4.id IS NULL) AND (p3.id IS NULL) AND (p2.id IS NULL) AND (p1.id IS NULL) AND (a4.account_nk IS NULL) AND (a3.account_nk IS NULL) AND (a2.account_nk IS NULL) AND (a1.account_nk IS NOT NULL)) THEN 'UC_L0'::varchar(5) 
 		        		ELSE NULL 
 		        END AS Master_Account_Origin,
-                coalesce(a4.account_nk,a3.account_nk,a2.account_nk) as UC_Super_Parent_ID,
-                coalesce(a4.pd_user_account_name,a3.pd_user_account_name,a2.pd_user_account_name) as UC_Super_Parent_Name,
-                coalesce(a4.pd_user_user_name,a3.pd_user_user_name,a2.pd_user_user_name) as UC_Super_Parent_Username,
+                
+                coalesce(a4.account_nk,a3.account_nk,a2.account_nk,a1.account_nk) as UC_Super_Parent_ID,
+                coalesce(a4.pd_user_account_name,a3.pd_user_account_name,a2.pd_user_account_name,a1.pd_user_account_name) as UC_Super_Parent_Name,
+                coalesce(u4.user_email,u3.user_email,u2.user_email,u1.user_email) as UC_Super_Parent_Username,
+                
                 case 	when a2.account_nk is null then 'Main Account' else 'Sub-Account' end as Main_Sub_Flag 
- FROM 			(((((((
+                
+ FROM 			
                 standard.dim_accounts as a1 
+                JOIN standard.dim_users u1 on a1.owner_id=u1.user_nk 
                 LEFT JOIN 	raw.odoo__res_partner as p1 ON ((p1.id = a1.erp_id))
-                ) 
+                
                 LEFT JOIN 	standard.dim_accounts as a2 ON ((a1.parent_account_nk = a2.account_nk))
-                )
+                LEFT JOIN   standard.dim_users u2 on a2.owner_id=u2.user_nk 
                 LEFT JOIN 	raw.odoo__res_partner as p2 ON ((p2.id = a2.erp_id))
-                ) 
+                 
                 LEFT JOIN 	standard.dim_accounts as a3 ON ((a2.parent_account_nk = a3.account_nk))
-                ) 
+                LEFT JOIN   standard.dim_users u3 on a3.owner_id=u3.user_nk 
                 LEFT JOIN 	raw.odoo__res_partner as p3 ON ((p3.id = a3.erp_id))
-                ) 
+                 
                 LEFT JOIN 	standard.dim_accounts as a4 ON ((a3.parent_account_nk = a4.account_nk))
-                )
+                LEFT JOIN   standard.dim_users u4 on a4.owner_id=u4.user_nk 
                 LEFT JOIN 	raw.odoo__res_partner as p4 ON ((p4.id = a4.erp_id))
-                )
+                
  )
  select 		*
 				, case when Charging_ID_L0 in ('20005065', '20004825', '20004828', '10004615') then '10626'
@@ -87,3 +93,5 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   else null 
 				  end as manual_odoo_name
  from  			base
+ 
+ 
