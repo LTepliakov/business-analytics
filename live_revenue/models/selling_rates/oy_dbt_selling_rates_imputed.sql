@@ -61,12 +61,12 @@ select 		id, parent_balance_id as parent_id
 					when Master_Account_ID = 10626 and ingestion_date<='2023-09-30' then 0.01243760 --Careem Networks FZ LLC (AE) , Master_Account_ID = 10626
 					when name = '10002202_Saudi Arabia SMS Package' and ingestion_date<='2023-09-30' then  0.01066667 --Nakhla Information Systems Technology (SA), Master_Account_ID = 3368
 					when name = '10002202_UAE All Operators' and ingestion_date<='2023-09-30' then  0.01347856 --Tamara FZE, Master_Account_ID = 9598
-					when name = '20000600_Basic KSA Package with International Support' and ingestion_date<='2023-09-30' then  0.01 --Tabby FZ-LLC, Master_Account_ID = 10168
+					when name = '20000600_Basic KSA Package with International Support' and ingestion_date<='2023-06-30' then  0.01 --Tabby FZ-LLC, Master_Account_ID = 10168
 					when Master_Account_ID = 3436 and ingestion_date<='2023-09-30' then 0.00986667 -- Al-Nahdi Medical Company
 					when Master_Account_ID = 3776 and ingestion_date<='2023-09-30' then 0.01026667 -- Tamkeentech - Tamkeen Technologies
 					when Master_Account_ID = 3394 and ingestion_date<='2023-09-30' then 0.01013333 -- Saudi Company For Hardware - SACO
 					when Master_Account_ID = 11055 and ingestion_date<='2023-09-30' then 0.01653333 -- Abdul Hadi Hamoud Al-Qahtani Foundation for Information Systems Technology
-					when Master_Account_ID = 4253 and ingestion_date<='2023-09-30' then  0.03976533 -- B-Tech Trading and Distribution Co.
+					when Master_Account_ID = 4253 and ingestion_date<='2023-06-30' then  0.03976533 -- B-Tech Trading and Distribution Co.
 					when Master_Account_ID = 12164 and ingestion_date<='2023-09-30' then 0.05333333 -- Unified Real Estate Development Company
 					when Master_Account_ID = 3168 and ingestion_date<='2023-09-30' then 0.0112 -- Azim Technical Financial Company Ltd.
 					when Master_Account_ID = 3469 and ingestion_date<='2023-09-30' then 0.03866667 -- Lazurde Company for Jewellery

@@ -37,9 +37,9 @@ select * from analytics.oy_dbt_sales_plans_gsheet
 except
 select * from sandbox.oy_sales_plans_gsheet order by No
 ;
-select * from analytics.oy_dbt_revenue_daily_enriched --order by date_nk  desc
+select * from analytics.oy_dbt_revenue_daily_enriched order by date_nk  desc
 except
-select * from analytics.oy_revenue_daily_enriched --order by date_nk desc
+select * from analytics.oy_revenue_daily_enriched order by date_nk desc
 ;
 
 --DROP ANALYTICS
