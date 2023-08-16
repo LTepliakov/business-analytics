@@ -73,6 +73,7 @@ select 		id, parent_balance_id as parent_id
 					when Master_Account_ID = 10368 and ingestion_date<='2023-09-30' then 0.01013333 -- Sondoq Alaibtikar for information and technology
 					when Master_Account_ID = 3965 and ingestion_date<='2023-09-30' then 0.013333 -- Kingdom Resources Trading Company - Sendebad
 					when Master_Account_ID = 3704 and ingestion_date<='2023-09-30' then 0.0105333  -- Aram Meem Trading Services Company - Toyou
+					when Master_Account_ID = 3436 and ingestion_date<='2023-09-30' then 0.00986667  -- Al-Nahdi Medical Company
 					else null
 			  end as manual_sell_rate
 			, Master_Account_Name, pd_user_user_name, pd_user_account_name, Master_Account_ID
