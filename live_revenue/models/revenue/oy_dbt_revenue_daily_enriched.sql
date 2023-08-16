@@ -11,13 +11,12 @@ select 		COALESCE (ca.rep_month, gl.first_date) as report_month
 			, case 	when bundle_type='mb' then charge 
 					else ca.charge*COALESCE(sr.manual_sell_rate, sr.analytics_selling_rate, srp.parent_selling_rate)
 			  end as analytics_revenue
-			, case 	when ca.units>0 and sr.manual_sell_rate is not null then ca.charge*sr.manual_sell_rate
+			, case 	when lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and ca.bundle_type = 'mb' then 0.0109*ca.units
+					when ca.units>0 and sr.manual_sell_rate is not null then ca.charge*sr.manual_sell_rate
 					when ca.units>0 and ABS(ca.cdr_selling_rate/COALESCE(srp.parent_selling_rate, sr.analytics_selling_rate)-1)>0.2 and bundle_type='package'
 							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate) --to address 1.0USD use case e.g. ELM
 					when ca.units>0 and (cdr_revenue = 0 or cdr_revenue is null or SELLING_RATE='1.0USD') and bundle_type='package'
 							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate)
-					when lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and date_nk<='2023-06-30' and ca.bundle_type = 'mb'
-							then 0.0109*ca.units
 					--0.0109 4-digit constrained which will be changed to more than 4 digit in June by Sven
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684654979174349?thread_ts=1684328640.491369&cid=C04KV5EGUDC
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684478079173099?thread_ts=1684328640.491369&cid=C04KV5EGUDC
