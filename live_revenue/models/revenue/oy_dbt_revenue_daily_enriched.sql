@@ -105,7 +105,7 @@ select 		report_month
 			, Master_Account_Name
 			, client_rank
 			, Master_Account_Origin
-			, case when Account_Type is null then 'Other' else Account_Type end as Account_Type
+			, case when Account_Type is null then 'Client Account' else Account_Type end as Account_Type
 			, bundle_name
 			, pd_user_country
 			, bundle_type
