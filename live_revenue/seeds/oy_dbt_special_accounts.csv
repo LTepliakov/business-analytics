@@ -1,129 +1,158 @@
-"Master_Account_ID","Master_Account_Name","pd_user_id","charging_id","Account_Type"
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118179,20004831,Internal Account
-"2924cf04-5ca0-443a-9a83-d402e873286e",Aviral,100132,10000064,Internal Account
+Master_Account_ID,Master_Account_Name,pd_user_id,charging_id,Account_Type
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118179,20004831,Internal Account
+2924cf04-5ca0-443a-9a83-d402e873286e,Aviral,100132,10000064,Internal Account
 f4dce33d-46b4-49f7-a3b2-91edfcea5ddb,HENKA,105961,10001578,Old client revenue generated from balance forfeiture
-"36250029-be27-4d91-9098-c2dad82f6739",Tahir Hussain,102549,20000795,Old client revenue generated from balance forfeiture
+36250029-be27-4d91-9098-c2dad82f6739,Tahir Hussain,102549,20000795,Old client revenue generated from balance forfeiture
 f06cdb97-c344-4535-9f32-bb76d2651bd1,Mahmoud Hamouda,102163,10000639,Testing Balance
-"28195ec5-c94d-4fb5-b8e3-931c828b3757",Alsalehat,120911,10005665,Testing Balance
-"003eac41-e0b6-41a7-9d1c-9334a13f6fff",Remal Ventures,102277,20000720,Testing Balance
-"252685b3-74d9-471d-a052-a4051f77aabf",Personal,112663,20003388,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119330,10004986,Internal Account
-"4bbc4241-dd9c-4c30-9103-abd59e924413",Kanari Internet DMCC,118707,20005005,Testing Balance
-"2b6c51db-2805-4b99-bab3-f2511119fc0e",SARAOUD,118978,10004870,Testing Balance
+28195ec5-c94d-4fb5-b8e3-931c828b3757,Alsalehat,120911,10005665,Testing Balance
+003eac41-e0b6-41a7-9d1c-9334a13f6fff,Remal Ventures,102277,20000720,Testing Balance
+252685b3-74d9-471d-a052-a4051f77aabf,Personal,112663,20003388,Testing Balance
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119330,10004986,Internal Account
+4bbc4241-dd9c-4c30-9103-abd59e924413,Kanari Internet DMCC,118707,20005005,Testing Balance
+2b6c51db-2805-4b99-bab3-f2511119fc0e,SARAOUD,118978,10004870,Testing Balance
 edf0cc6d-0a65-49c7-924b-9ba180e9808a,wondx,119571,20005303,Testing Balance
-"19862cb1-b822-458a-990f-58a6044a25b1",Saeed Badran,100260,20000123,Testing Balance
-"8875af44-d4b3-4060-933e-2fb98dd0eafc",Abdullah Alkhatib,105903,10001566,Testing Balance
+19862cb1-b822-458a-990f-58a6044a25b1,Saeed Badran,100260,20000123,Testing Balance
+8875af44-d4b3-4060-933e-2fb98dd0eafc,Abdullah Alkhatib,105903,10001566,Testing Balance
 a686db44-57de-4878-9c7c-306a878b1430,Abdullah Alhassan,106109,10001611,Testing Balance
-"096db07c-f82e-11e8-809b-0252151e4411",Active monitoring,1,1,Internal Account
+096db07c-f82e-11e8-809b-0252151e4411,Active monitoring,1,1,Internal Account
 fc772904-f3e8-4f8d-9aa1-b5183851e172,Majd unifonic emp  Comapny,120027,10005253,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119819,10005149,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118071,20004793,Internal Account
-"9998222d-b1c2-49a4-9cf1-0a4f5c6ae9fe",Al-Abed Cosmetics,112717,20003406,Old client revenue generated from balance forfeiture
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119819,10005149,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118071,20004793,Internal Account
+9998222d-b1c2-49a4-9cf1-0a4f5c6ae9fe,Al-Abed Cosmetics,112717,20003406,Old client revenue generated from balance forfeiture
 f81ab580-6d42-48d0-8f1c-7fafff18cb35,Fllawi,115503,10003912,Old client revenue generated from balance forfeiture
 d11ecd93-18a1-4781-8712-f27eb2e98dbf,Emara Foundation,104171,20001192,Testing Balance
-"2b7390c1-b97e-49ef-9a8e-48a07a6d63ac",مؤسسة كوف للدعاية والإعلان,102235,10000655,Testing Balance
-"0e799611-2707-4073-b474-5af75a333f29",Guerlain,110881,20002915,Testing Balance
+2b7390c1-b97e-49ef-9a8e-48a07a6d63ac,مؤسسة كوف للدعاية والإعلان,102235,10000655,Testing Balance
+0e799611-2707-4073-b474-5af75a333f29,Guerlain,110881,20002915,Testing Balance
 f69833ec-f4d7-40c9-bc8b-924482d0a742,Order international,107515,20002058,Testing Balance
-"57250f23-bbe0-4ee2-a72d-be2a82d6315c",Cycls,116979,10004307,Testing Balance
+57250f23-bbe0-4ee2-a72d-be2a82d6315c,Cycls,116979,10004307,Testing Balance
 e86993c1-802a-4234-8d7e-16396d639c4e,Briskstar Technologies LLP,120039,10005259,Testing Balance
 d8b01317-452a-458e-b492-207819f88e3e,IT Cores,120397,10005451,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119363,20005231,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118102,10004593,Internal Account
-"1cf3a3ef-d107-4cf8-a63b-563931809115",UC product team,100035,20000002,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119363,20005231,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118102,10004593,Internal Account
+1cf3a3ef-d107-4cf8-a63b-563931809115,UC product team,100035,20000002,Internal Account
 ,,,10005852,No info found
 b5c017b3-9d03-4579-a2a5-29f5f3f542fc,Wael Mostafa,113091,20003497,Old client revenue generated from balance forfeiture
-"0a1457db-2079-4180-b560-41957eb24f62",Abdullah Al Mugren,107159,10001867,Testing Balance
+0a1457db-2079-4180-b560-41957eb24f62,Abdullah Al Mugren,107159,10001867,Testing Balance
 e5657f84-c433-457f-b5e3-2d4c178b1407,AlSaqeefa Entertainment Foundation,119059,20005127,Testing Balance
 c4042f4d-0475-48e9-bf3f-fd95d6a94bf2,Sabaq Company,117621,20004621,Testing Balance
-"8a87a00a-2852-4a57-b417-e869a6ed3e75",Faisal -,100246,20000119,Testing Balance
+8a87a00a-2852-4a57-b417-e869a6ed3e75,Faisal -,100246,20000119,Testing Balance
 d2f5e446-a3d1-420d-a71d-22efe9af881f,Mohammed Alabdulraheem,102673,10000759,Testing Balance
-"4b06c442-1d70-4d1d-b5ad-6e648878b58c",moaayn App,105879,20001628,Testing Balance
-"0ece050d-aacb-4e70-b8e8-b35463a4c1c0",Neocare clinic,121095,10005752,Testing Balance
-"21ff2247-b03e-4408-92ae-d08b47a8000c",Terrific Ventures,117233,10004368,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119209,20005179,Internal Account
+4b06c442-1d70-4d1d-b5ad-6e648878b58c,moaayn App,105879,20001628,Testing Balance
+0ece050d-aacb-4e70-b8e8-b35463a4c1c0,Neocare clinic,121095,10005752,Testing Balance
+21ff2247-b03e-4408-92ae-d08b47a8000c,Terrific Ventures,117233,10004368,Testing Balance
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119209,20005179,Internal Account
 b35fe204-bef2-4ec4-afd8-f14e89057dc9,CompanyName cfszuarkzr,104275,20001214,Old client revenue generated from balance forfeiture
-"235a8bf1-467f-425b-906c-af77d1d316ca",Qoad,120915,10005666,Testing Balance
+235a8bf1-467f-425b-906c-af77d1d316ca,Qoad,120915,10005666,Testing Balance
 a4bb405f-b629-43e9-ad7d-a00035ecca06,Algym,117357,10004393,Testing Balance
-"9a28ebcf-c62c-44fa-9144-a284f614e3bf",Alraya,106219,10001637,Testing Balance
-"14f362e5-b707-49db-9661-2571696d95af",Meshaina,120839,20005376,Testing Balance
-"20634716-5c23-49fe-8104-6f35d6a85bcc",Advanced Automation Information Technology W.L.L,120693,20005351,Testing Balance
-"4ac389b5-343f-465e-827c-74ea7b31361b",Abu Turki,102533,20000791,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118383,20004896,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,120797,10005625,Internal Account
+9a28ebcf-c62c-44fa-9144-a284f614e3bf,Alraya,106219,10001637,Testing Balance
+14f362e5-b707-49db-9661-2571696d95af,Meshaina,120839,20005376,Testing Balance
+20634716-5c23-49fe-8104-6f35d6a85bcc,Advanced Automation Information Technology W.L.L,120693,20005351,Testing Balance
+4ac389b5-343f-465e-827c-74ea7b31361b,Abu Turki,102533,20000791,Testing Balance
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118383,20004896,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,120797,10005625,Internal Account
 f12ac99a-7225-4cca-b88e-bc95fa091739,test for product team,116349,20004317,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119141,20005155,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119141,20005155,Internal Account
 ,,,998,No info found
-"7a2917a3-2046-45e4-93fd-4e341d044251",CATCH,106339,20001749,Old client revenue generated from balance forfeiture
-"4935a711-30b3-496f-a352-c9efcda38f91",Rafraf,106533,10001714,Testing Balance
+7a2917a3-2046-45e4-93fd-4e341d044251,CATCH,106339,20001749,Old client revenue generated from balance forfeiture
+4935a711-30b3-496f-a352-c9efcda38f91,Rafraf,106533,10001714,Testing Balance
 f0bcaa02-48b6-4ea0-9c79-9adc85cfda94,Zady Trading Co,116239,10004093,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118069,20004792,Internal Account
-"0247ffae-ae8a-4b5e-a1ce-200bdc38c997",Ahmed Gaafar,100106,10000045,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118069,20004792,Internal Account
+0247ffae-ae8a-4b5e-a1ce-200bdc38c997,Ahmed Gaafar,100106,10000045,Internal Account
 b33299f4-8f00-4cb6-944a-0974aa8447b8,Testing Support Team,105677,10001513,Internal Account
-"9c733e75-c6b2-4476-8f2a-52d86755692a",Mohammad shehadeh,100349,20000177,Internal Account
-"3959dbd4-f5d3-445e-b646-1a8535af7aff","3abar",114269,20003802,Old client revenue generated from balance forfeiture
+9c733e75-c6b2-4476-8f2a-52d86755692a,Mohammad shehadeh,100349,20000177,Internal Account
+3959dbd4-f5d3-445e-b646-1a8535af7aff,3abar,114269,20003802,Old client revenue generated from balance forfeiture
 bf7eeade-3630-45f2-811a-7d31759ec09d,Mouneer -,102187,20000700,Testing Balance
 b3c27dd7-e3a5-4b16-ba36-04aaae1c5d00,Ahmed Elgebaly,102627,10000748,Testing Balance
 c7c8943c-9b81-494d-a3b3-fc053bfee4ff,Mucademy,119241,20005192,Testing Balance
-"998607eb-2494-4bf5-bd3b-17e4c9b89e39",E-load.app,105917,20001637,Testing Balance
+998607eb-2494-4bf5-bd3b-17e4c9b89e39,E-load.app,105917,20001637,Testing Balance
 c5b4f883-1ad6-4b6c-ae92-fbd5b3706362,Alshrouq Express,121257,10005833,Testing Balance
-"4f1df07c-69df-482d-82a7-f3cab5adba05",Muhammad Aleem,106347,10001669,Testing Balance
-"0a1457db-2079-4180-b560-41957eb24f62",Abdullah Al Mugren,107219,20001974,Testing Balance
-"50386416-4380-416e-be19-d73e9f94b036",Avon KSA,121269,10005839,Testing Balance
-"629124ac-bb99-4690-add8-7cb9327f3945",Mass-Co,120551,10005528,Testing Balance
-"4ed14b18-065a-4210-b1e9-2d14be900591",Mohammed Elhussein,101987,20000646,Testing Balance
+4f1df07c-69df-482d-82a7-f3cab5adba05,Muhammad Aleem,106347,10001669,Testing Balance
+0a1457db-2079-4180-b560-41957eb24f62,Abdullah Al Mugren,107219,20001974,Testing Balance
+50386416-4380-416e-be19-d73e9f94b036,Avon KSA,121269,10005839,Testing Balance
+629124ac-bb99-4690-add8-7cb9327f3945,Mass-Co,120551,10005528,Testing Balance
+4ed14b18-065a-4210-b1e9-2d14be900591,Mohammed Elhussein,101987,20000646,Testing Balance
 dfa03ad7-e05d-4b55-a34c-af2362c2b468,Dnaneer,120711,10005597,Testing Balance
-"2773cdc9-2c3f-426b-a61f-d796969b89cc",بارع الرقمية لتنقية المعلومات,105897,20001632,Testing Balance
-"751c6dcb-3050-48fe-9467-ee9c86b7588c",Born Interactive,121185,10005797,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,119528,20005290,Internal Account
-"3471cd40-ec57-4ef6-b083-d80dc63b3ddb",Kabir & Sons.,120247,10005374,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,104775,20001329,Internal Account
-"622ad02f-de6f-4862-aae1-dc26ace80e05",Abed Al-Rahman Saleh,106629,20001822,Old client revenue generated from balance forfeiture
-"56eb6e68-cfe5-4af3-8e5f-545666c62f79",Nazmy Elmasry,100187,20000087,Old client revenue generated from balance forfeiture
-"079ef265-7e46-44d6-96ac-6a6bee88367c",Abdullah Alzahrani,102337,20000735,Old client revenue generated from balance forfeiture
-"71123edb-f38a-4c7a-98c7-e3ac7b1127b0",Hoot and hawaat,117339,10004390,Testing Balance
-"06f1d1f1-5ae8-4e60-bd61-021f533e30de",Mandrian perfume,117125,20004499,Testing Balance
-"4a4f294e-679c-455e-a585-815ed06bd79e",Finto,119869,10005174,Testing Balance
-"73a7eac1-cd3c-4856-a542-9b2f3e7c910a",Al Tayer Insignia - POC,120433,10005469,Testing Balance
-"17c67d2d-7b4e-4722-b56a-c2984ea8c30c",Saudi Commission for Health Specialties (الهيئة السعودية للتخصصات الصحية),104823,20001343,Testing Balance
-"10e187e3-e84b-4498-944c-bb1e96b80a7a",Taqarub Logistics Company,119929,10005204,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118165,20004824,Internal Account
+2773cdc9-2c3f-426b-a61f-d796969b89cc,بارع الرقمية لتنقية المعلومات,105897,20001632,Testing Balance
+751c6dcb-3050-48fe-9467-ee9c86b7588c,Born Interactive,121185,10005797,Testing Balance
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,119528,20005290,Internal Account
+3471cd40-ec57-4ef6-b083-d80dc63b3ddb,Kabir & Sons.,120247,10005374,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,104775,20001329,Internal Account
+622ad02f-de6f-4862-aae1-dc26ace80e05,Abed Al-Rahman Saleh,106629,20001822,Old client revenue generated from balance forfeiture
+56eb6e68-cfe5-4af3-8e5f-545666c62f79,Nazmy Elmasry,100187,20000087,Old client revenue generated from balance forfeiture
+079ef265-7e46-44d6-96ac-6a6bee88367c,Abdullah Alzahrani,102337,20000735,Old client revenue generated from balance forfeiture
+71123edb-f38a-4c7a-98c7-e3ac7b1127b0,Hoot and hawaat,117339,10004390,Testing Balance
+06f1d1f1-5ae8-4e60-bd61-021f533e30de,Mandrian perfume,117125,20004499,Testing Balance
+4a4f294e-679c-455e-a585-815ed06bd79e,Finto,119869,10005174,Testing Balance
+73a7eac1-cd3c-4856-a542-9b2f3e7c910a,Al Tayer Insignia - POC,120433,10005469,Testing Balance
+17c67d2d-7b4e-4722-b56a-c2984ea8c30c,Saudi Commission for Health Specialties (الهيئة السعودية للتخصصات الصحية),104823,20001343,Testing Balance
+10e187e3-e84b-4498-944c-bb1e96b80a7a,Taqarub Logistics Company,119929,10005204,Testing Balance
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118165,20004824,Internal Account
 ,,,10005373,No info found
-"38ee5522-9211-41a0-a586-7e486d2b4d24",Fares Almalhani,102675,20000826,Old client revenue generated from balance forfeiture
-"9f968faa-dc51-454d-a8ae-d5fa2b5b6ed4",AbdelMonem Soliman,100259,20000122,Old client revenue generated from balance forfeiture
-"22906cc3-2670-4ae4-8874-ef7437f6b4a4",Rayed Alnoom,106745,20001852,Old client revenue generated from balance forfeiture
-"6abd6562-45db-40ef-8d84-0867ba1e38aa",SubsBase,121157,10005783,Testing Balance
+38ee5522-9211-41a0-a586-7e486d2b4d24,Fares Almalhani,102675,20000826,Old client revenue generated from balance forfeiture
+9f968faa-dc51-454d-a8ae-d5fa2b5b6ed4,AbdelMonem Soliman,100259,20000122,Old client revenue generated from balance forfeiture
+22906cc3-2670-4ae4-8874-ef7437f6b4a4,Rayed Alnoom,106745,20001852,Old client revenue generated from balance forfeiture
+6abd6562-45db-40ef-8d84-0867ba1e38aa,SubsBase,121157,10005783,Testing Balance
 d8b12585-c3f1-4fe5-907e-698756f254e0,Wallan Trading Company,120567,10005536,Testing Balance
-"71e7712e-c420-4b45-afc6-8f33773a2de6",Yousef Saleh,106237,20001724,Testing Balance
-"63311651-6b67-4f31-8818-f28b4c00594a",Machdrive,120447,10005476,Testing Balance
-"0474cf01-daf7-4c45-b329-f5edbdcbb9cd",aksheffeen.com,120197,10005338,Testing Balance
-"554e16f1-44a7-4652-92c9-dc7f8c503792",Muhammed Shafeeq,115485,10003909,Testing Balance
+71e7712e-c420-4b45-afc6-8f33773a2de6,Yousef Saleh,106237,20001724,Testing Balance
+63311651-6b67-4f31-8818-f28b4c00594a,Machdrive,120447,10005476,Testing Balance
+0474cf01-daf7-4c45-b329-f5edbdcbb9cd,aksheffeen.com,120197,10005338,Testing Balance
+554e16f1-44a7-4652-92c9-dc7f8c503792,Muhammed Shafeeq,115485,10003909,Testing Balance
 e14dcce5-bea2-4a3b-9843-7c6cfaac7bed,Mandobcom,112639,20003380,Testing Balance
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118164,10004612,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,117958,10004548,Internal Account
-"6c0f8798-983a-4b69-a707-714e8d74b6c1",Yanal Finance Company,106683,10001751,Old client revenue generated from balance forfeiture
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118164,10004612,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,117958,10004548,Internal Account
+6c0f8798-983a-4b69-a707-714e8d74b6c1,Yanal Finance Company,106683,10001751,Old client revenue generated from balance forfeiture
 b81562b7-ae26-455d-852a-b66274dd4a9f,Designers Hub,100813,20000359,Old client revenue generated from balance forfeiture
-"43a0415c-5acd-441b-88dd-39f99cc05cad",جمعية الدعوة والإرشاد وتوعية الجاليات بالشرائع,102659,20000821,Old client revenue generated from balance forfeiture
+43a0415c-5acd-441b-88dd-39f99cc05cad,جمعية الدعوة والإرشاد وتوعية الجاليات بالشرائع,102659,20000821,Old client revenue generated from balance forfeiture
 f6163799-e93e-4d1f-9e8c-184a3e9faf8c,test demo,117419,10004406,Testing Balance
 ae3f9495-d245-474e-a18c-250867fbd7f8,Owais Al-Osool Company for Financial Technology in the securities business,120725,10005603,Testing Balance
-"8137a070-8dad-4597-acdc-e92f17e3e138",شركة حلول الخزائن المحدودة,102593,20000805,Testing Balance
+8137a070-8dad-4597-acdc-e92f17e3e138,شركة حلول الخزائن المحدودة,102593,20000805,Testing Balance
 bfb111c3-8629-4b09-accd-b19b6c17dbf1,Louzan abaya,101899,10000570,Testing Balance
 d59814e7-0658-49e0-b187-6a427e8cce2b,Seven Medical Center,105827,20001616,Testing Balance
 e614cc43-3d51-4388-a921-cb56bd070853,SCE,108921,20002416,Testing Balance
-"1895b698-3dba-4931-8a66-3851218d001c",Appselfcare,118762,10004809,Testing Balance
+1895b698-3dba-4931-8a66-3851218d001c,Appselfcare,118762,10004809,Testing Balance
 b38fb9d6-baf1-45e3-82dc-dad84ae42a54,National Research of Astronomy and Geophysics,100184,20000085,Testing Balance
 ff3ffa8d-33f9-43e0-900f-6f9b55913fe1,Maaden Aluminium,106189,10001629,Old client revenue generated from balance forfeiture
-"64617d70-eae4-4141-9e40-4a7880c8e613",Alteeb alfakhir,110347,10002644,Testing Balance
-"019fa43b-9409-4e3d-9b7b-66074f064b7d",YALLOW,116845,10004275,Testing Balance
-"6f4ef091-e2eb-44e4-a183-05cd5bf55ec1",HK-Demo,117265,20004531,Testing Balance
-"4dd95e1a-c3fb-44e0-9425-5754133f2a00",Blomal,119829,10005154,Testing Balance
+64617d70-eae4-4141-9e40-4a7880c8e613,Alteeb alfakhir,110347,10002644,Testing Balance
+019fa43b-9409-4e3d-9b7b-66074f064b7d,YALLOW,116845,10004275,Testing Balance
+6f4ef091-e2eb-44e4-a183-05cd5bf55ec1,HK-Demo,117265,20004531,Testing Balance
+4dd95e1a-c3fb-44e0-9425-5754133f2a00,Blomal,119829,10005154,Testing Balance
 cd84be07-2c33-4717-93ef-d65b9b63d6bc,Elag,102749,10000776,Testing Balance
 c2d97a01-c762-41be-ae3f-d373d1f4295b,TeleCard Limited,119759,10005119,Testing Balance
-"045b156d-d2ad-434a-8d1e-c3386b693b27",Mohammad Abu Shanab,106215,20001718,Internal Account
-"8d58eeba-c694-4754-9a33-e503acacbd7e",Carrier Team,118628,10004783,Internal Account
-"83adce79-95b0-4b0e-8f5d-b2a16413f13f",Health Kingdom Ltd.,121121,10005765,Testing Balance
+045b156d-d2ad-434a-8d1e-c3386b693b27,Mohammad Abu Shanab,106215,20001718,Internal Account
+8d58eeba-c694-4754-9a33-e503acacbd7e,Carrier Team,118628,10004783,Internal Account
+83adce79-95b0-4b0e-8f5d-b2a16413f13f,Health Kingdom Ltd.,121121,10005765,Testing Balance
 bfabb0ad-1fa0-494a-9b8f-8d9dbd648442,Adwaa Rent A Car,109881,20002661,Testing Balance
-"9ef5e0e2-12d2-4db2-b2d2-68dd2fa30ed2",Afra7na,100895,20000386,Testing Balance
+9ef5e0e2-12d2-4db2-b2d2-68dd2fa30ed2,Afra7na,100895,20000386,Testing Balance
 d44cc99a-7d26-4075-b387-96841d5f7e19,SourceOne Internet FZE,109159,20002478,Testing Balance
-"8d032471-df35-4aae-8837-8162c8a9b6f6",Ladona,121271,10005840,Testing Balance
+8d032471-df35-4aae-8837-8162c8a9b6f6,Ladona,121271,10005840,Testing Balance
 cda1cff3-9f33-4200-86a7-d36c4ef53ce9,Tatmeen,119745,10005112,Testing Balance
-"28082c86-cc7c-497d-88f9-622a49b97a08",Motorjy,106715,10001762,Testing Balance
+28082c86-cc7c-497d-88f9-622a49b97a08,Motorjy,106715,10001762,Testing Balance
+,,,10000006,Internal Account
+,,,20004757,Internal Account
+,,,20000061,Internal Account
+,,,10004871,Internal Account
+,,,10006141,Internal Account
+,,,10000060,Internal Account
+,,,20002450,Old client revenue generated from balance forfeiture
+,,,20002425,Old client revenue generated from balance forfeiture
+,,,10005771,Old client revenue generated from balance forfeiture
+,,,10005330,Old client revenue generated from balance forfeiture
+,,,10000355,Old client revenue generated from balance forfeiture
+,,,10006036,Old client revenue generated from balance forfeiture
+,,,20004754,Old client revenue generated from balance forfeiture
+,,,10006005,Old client revenue generated from balance forfeiture
+,,,20002783,Old client revenue generated from balance forfeiture
+,,,20000574,Old client revenue generated from balance forfeiture
+,,,10006048,Old client revenue generated from balance forfeiture
+,,,20000889,Old client revenue generated from balance forfeiture
+,,,20000602,Old client revenue generated from balance forfeiture
+,,,10000356,Old client revenue generated from balance forfeiture
+,,,10000321,Old client revenue generated from balance forfeiture
+,,,10002507,Old client revenue generated from balance forfeiture
+,,,20001424,Old client revenue generated from balance forfeiture
+,,,20000478,Old client revenue generated from balance forfeiture
+,,,20004644,Old client revenue generated from balance forfeiture
+,,,20005343,Old client revenue generated from balance forfeiture
+,,,10001756,Old client revenue generated from balance forfeiture
+,,,20000643,Old client revenue generated from balance forfeiture
+,,,20001473,Old client revenue generated from balance forfeiture
