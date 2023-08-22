@@ -11,16 +11,20 @@ select 		COALESCE (ca.rep_month, gl.first_date) as report_month
 			, case 	when bundle_type='mb' then charge 
 					else ca.charge*COALESCE(sr.manual_sell_rate, sr.analytics_selling_rate, srp.parent_selling_rate)
 			  end as analytics_revenue
-			, case 	when lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and ca.bundle_type = 'mb' then 0.0109*ca.units
+			, case 	when ca.bundle_type = 'mb' and lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and ca.date_nk<'2023-07-01'
+							then 0.0109*ca.units
+					when ca.bundle_type = 'mb' and lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and ca.date_nk>='2023-07-01'
+							then 0.01*ca.units
+					when ca.bundle_type = 'mb' then ca.charge
 					when ca.units>0 and sr.manual_sell_rate is not null then ca.charge*sr.manual_sell_rate
-					when ca.units>0 and ABS(ca.cdr_selling_rate/COALESCE(srp.parent_selling_rate, sr.analytics_selling_rate)-1)>0.2 and bundle_type='package'
+					when ca.bundle_type='package' and ca.units>0 and ABS(ca.cdr_selling_rate/COALESCE(srp.parent_selling_rate, sr.analytics_selling_rate)-1)>0.2
 							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate) --to address 1.0USD use case e.g. ELM
-					when ca.units>0 and (cdr_revenue = 0 or cdr_revenue is null or SELLING_RATE='1.0USD') and bundle_type='package'
+					when ca.bundle_type='package' and ca.units>0 and SELLING_RATE='1.0USD'
 							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate)
 					--0.0109 4-digit constrained which will be changed to more than 4 digit in June by Sven
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684654979174349?thread_ts=1684328640.491369&cid=C04KV5EGUDC
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684478079173099?thread_ts=1684328640.491369&cid=C04KV5EGUDC
-					else cdr_revenue
+					else ca.charge*COALESCE(sr.manual_sell_rate, sr.analytics_selling_rate, srp.parent_selling_rate)
 			  end as final_revenue
 			, gl.GL_Revenue, gl_open.GL_Open_Acc_Revenue, gl_adj.GL_Revenue_adjustm, gl_forfeit.GL_Revenue_forfeit
 			, sr.SELLING_RATE
