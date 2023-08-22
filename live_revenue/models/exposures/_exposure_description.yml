@@ -11,7 +11,7 @@ exposures:
       This is the Live Revenue ddashboard feed updated on daily basis.
 
     depends_on:                             # expected
-      - ref('oy_dbt_revenue_daily_enriched')
+      - ref('oy_revenue_daily_enriched')
       #- source('analytics', 'oy_v_GL_revenue_reference') #tables names
       #metric('consumption', 'selling_rates')
 
