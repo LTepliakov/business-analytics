@@ -1,6 +1,0 @@
-version: 2
-
-models:
-  - name: oy_revenue_daily_enriched
-    docs:
-      show: false
