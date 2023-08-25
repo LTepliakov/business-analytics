@@ -16,11 +16,11 @@ select 		COALESCE (ca.rep_month, gl.first_date) as report_month
 					when ca.bundle_type = 'mb' and lmm.Master_Account_Name='Mobile Telecommunications Company - Zain Saudi Arabia' and ca.date_nk>='2023-07-01'
 							then 0.01*ca.units
 					when ca.bundle_type = 'mb' then ca.charge
-					when ca.units>0 and sr.manual_sell_rate is not null then ca.charge*sr.manual_sell_rate
-					when ca.bundle_type='package' and ca.units>0 and ABS(ca.cdr_selling_rate/COALESCE(srp.parent_selling_rate, sr.analytics_selling_rate)-1)>0.2
-							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate) --to address 1.0USD use case e.g. ELM
-					when ca.bundle_type='package' and ca.units>0 and SELLING_RATE='1.0USD'
-							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate)
+					{# when ca.units>0 and sr.manual_sell_rate is not null then ca.charge*sr.manual_sell_rate #}
+					{# when ca.bundle_type='package' and ca.units>0 and ABS(ca.cdr_selling_rate/COALESCE(srp.parent_selling_rate, sr.analytics_selling_rate)-1)>0.2
+							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate) --to address 1.0USD use case e.g. ELM #}
+					{# when ca.bundle_type='package' and ca.units>0 and SELLING_RATE='1.0USD'
+							then ca.charge*COALESCE(sr.analytics_selling_rate, srp.parent_selling_rate) #}
 					--0.0109 4-digit constrained which will be changed to more than 4 digit in June by Sven
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684654979174349?thread_ts=1684328640.491369&cid=C04KV5EGUDC
 					--https://unifonic.slack.com/archives/C04KV5EGUDC/p1684478079173099?thread_ts=1684328640.491369&cid=C04KV5EGUDC
@@ -100,7 +100,8 @@ on 			coalesce(ca.manual_odoo_id ,lmm.Master_Account_ID) = top40."Odoo ID"
 where 		1=1 and report_month is not null
 order by 	ca.charging_id, ca.date_nk
 )
-select 		report_month
+select 		--distinct
+			report_month
 			, date_nk
 			, charging_id
 			, pd_user_id
@@ -115,7 +116,7 @@ select 		report_month
 			, bundle_type
 			, units
 			, charge
-			, round(cdr_revenue,2) as cdr_revenue
+			--, round(cdr_revenue,2) as cdr_revenue
 			, round(raw_revenue,2) as raw_revenue
 			, round(analytics_revenue,2) as analytics_revenue
 			, round(final_revenue,2) as final_revenue
@@ -136,7 +137,7 @@ select 		report_month
 			  end as final_selling_rate			 
 			, SELLING_RATE
 			, raw_selling_rate
-			, cdr_selling_rate
+			--, cdr_selling_rate
 			, analytics_selling_rate
 			, manual_sell_rate
 			, parent_selling_rate
