@@ -98,7 +98,7 @@ left join 	(
 on 			coalesce(ca.manual_odoo_id ,lmm.Master_Account_ID) = top40."Odoo ID"
 -------
 where 		1=1 and report_month is not null
-order by 	ca.charging_id, ca.date_nk
+--order by 	ca.charging_id, ca.date_nk
 )
 select 		--distinct
 			report_month
@@ -152,4 +152,4 @@ left join 	(
 			)as tm 
 on 			tm.odoo_id = base.Master_Account_ID
 where 		1=1 --and charging_id = 20002456 --Saudi Abyat for Building Materials OCS anomaly https://docs.google.com/spreadsheets/d/1ryZh7N_7zbnhgZIaLkCv2u2TzWuXBn1CY02ZKPbZEtY/edit?usp=sharing
-order by 	charging_id, date_nk
+--order by 	charging_id, date_nk

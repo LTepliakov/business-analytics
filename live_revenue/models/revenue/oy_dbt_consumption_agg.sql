@@ -1,6 +1,8 @@
+
 {{config (materialized='table')}} 
 
 select 		LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
+            , event_type
             , date(ca.hour_nk) as date_nk
             , ca.account_id as charging_id
             , da.pd_user_id
@@ -17,16 +19,17 @@ select 		LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
                     when ca.bundle_name in ('20000600_UAE All Operators') then 'Tabby FZ-LLC' -- Tabby
                     else null 
                 end as manual_odoo_name
-            , tariff
-            , current_selling_rate_value
-            , Master_Account_ID
-            , Master_Account_Name
-            , Master_Account_Origin
-            , sum(units) as units, sum(charge) as charge, sum(revenue) as cdr_revenue
-            , case 	when sum(units)=0 then null
-                    when split_part(trim(ca.bundle_name), '_', 2)='package' then ROUND(sum(revenue)/sum(charge),8)
-                    else ROUND(sum(revenue)/sum(units),8) 
-                end as cdr_selling_rate
+            , ca.tariff
+            , ca.current_selling_rate_value
+            , lmm.Master_Account_ID
+            , lmm.Master_Account_Name
+            , lmm.Master_Account_Origin
+            , tm.hs_team
+            , tm.hs_manager
+            , tm.tcsm_manager
+            , case when sa.Account_Type is null then 'Client Account' else sa.Account_Type end as Account_Type
+            , case when top40."Customer Name" is null then null else 'Top 40' end as client_rank
+            , sum(units) as units, sum(charge) as charge
 from 		{{ source('aggregate', 'fact_sms_consumption_aggregate')}} as ca --aggregate.fact_sms_consumption_aggregate 
 left join 	{{ source('standard', 'dim_accounts') }} as da --standard.dim_accounts as da
 on 			ca.account_id = da.charging_id
@@ -40,7 +43,26 @@ left join 	(
 			) as lmm
 on 			ca.account_id = lmm.Charging_ID_L0
 -------
-where 		ca.event_type = 'default.sms'
-            and date(hour_nk) >= '2023-01-01'
-group by	1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+left join 	(
+				select 		distinct
+							odoo_id, odoo_name, email, hs_team, hs_manager, hs_email, tcsm_manager
+				from 		{{ source('analytics', 'oy_v_odoo_hs_team_manager')}} --analytics.oy_v_odoo_hs_team_manager
+				where 		hs_team is not null and hs_manager is not null
+				order by 	hs_manager
+			) as tm 
+on 			tm.odoo_id = lmm.Master_Account_ID
+-------
+left join	{{ ref('oy_dbt_special_accounts')}} as sa --analytics.oy_special_accounts
+on 			ca.account_id = sa.charging_id
+-------
+left join 	(
+				select 		* 
+				from 		{{ ref('oy_dbt_sales_plans_gsheet')}} --sandbox.oy_sales_plans_gsheet 
+				where		No<>3 order by No
+			) as top40
+on 			lmm.Master_Account_ID = top40."Odoo ID"
+-------
+where	    lmm.Master_Account_Name <> 'migration traffic'
+            and ca.event_type is not NULL
+group by	1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
 order by 	date(ca.hour_nk) desc
