@@ -8,5 +8,5 @@ from 		    {{ source('aggregate', 'fact_campaigns') }} as fc
 left join	    {{ source('standard', 'dim_accounts') }} as da
 on 			    fc.account_id = da.account_nk
 ----------------
-left join 	    {{ source('analytics', 'lm_dbt_master_account_mapping') }} as lm
+left join 	    {{ source('analytics', 'lm_v_master_account_mapping') }} as lm
 on 			    fc.account_id =lm.UC_Account_ID_L0 

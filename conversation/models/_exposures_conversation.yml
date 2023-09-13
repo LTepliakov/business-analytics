@@ -14,7 +14,7 @@ exposures:
       name: Oleg Yun
       email: oyun@unifonic.com
     depends_on:
-      - ref('oy_dbt_conversation_messages')
+      # - ref('oy_dbt_conversation_messages')
       - ref('oy_dbt_conversation_wtsap_cost_and_conversations')
 
   - name: conversation_snapshot
@@ -28,6 +28,6 @@ exposures:
       name: Laurent Mang
       email: lmang@unifonic.com
     depends_on:
-      - ref('oy_dbt_conversation_messages')
+      # - ref('oy_dbt_conversation_messages')
       - ref('oy_dbt_conversation_wtsap_cost_and_conversations')
       - ref('oy_dbt_conversation_campaigns')

@@ -3,20 +3,20 @@ version: 2
 
 models:
 
-  - name: oy_dbt_conversation_messages
-    description: >
-      Underlying data for the Tableau data source "master.fact_conversation.dwh"
-      Count messages accross channels WHATSAPP, MESSENGER, TWITTER, etc. 
-      Underlying data for master.fact_conversation.dwh
-      It's Vertica replacement of "Conversation DB - Message Events Summary" from Tableau Server based on prod db
-    columns:
-      - name: Master_Account_Name
-        description: "Odoo account name else UC account name"
-    #     tests:
-    #       - unique
-    #       - not_null
-      - name: Master_Account_ID
-        description: "Odoo account id name else UC account id"
+  # - name: oy_dbt_conversation_messages
+  #   description: >
+  #     Underlying data for the Tableau data source "master.fact_conversation.dwh"
+  #     Count messages accross channels WHATSAPP, MESSENGER, TWITTER, etc. 
+  #     Underlying data for master.fact_conversation.dwh
+  #     It's Vertica replacement of "Conversation DB - Message Events Summary" from Tableau Server based on prod db
+  #   columns:
+  #     - name: Master_Account_Name
+  #       description: "Odoo account name else UC account name"
+  #   #     tests:
+  #   #       - unique
+  #   #       - not_null
+  #     - name: Master_Account_ID
+  #       description: "Odoo account id name else UC account id"
 
   - name: oy_dbt_conversation_wtsap_cost_and_conversations
     description: >

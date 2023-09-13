@@ -21,4 +21,5 @@ sources:
     database: verticadb
     schema: analytics
     tables:
-      - name: lm_dbt_master_account_mapping
+      - name: oy_conversation_messages_2023_H1
+      - name: lm_v_master_account_mapping

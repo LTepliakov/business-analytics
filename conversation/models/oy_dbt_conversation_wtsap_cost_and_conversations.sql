@@ -1,4 +1,4 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 with da as 
 (
@@ -19,5 +19,5 @@ from 			{{ source('raw', 'conversation__whatsapp_conversation_based_charge') }} 
 left join		da
 on 				wc.account_id = da.Account_ID
 ----------------
-left join 	    {{ source('analytics', 'lm_dbt_master_account_mapping') }} as lm
+left join 	    {{ source('analytics', 'lm_v_master_account_mapping') }} as lm
 on 			    wc.account_id = lm.UC_Account_ID_L0 
