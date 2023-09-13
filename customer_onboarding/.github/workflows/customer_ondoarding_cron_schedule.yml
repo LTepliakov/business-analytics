@@ -1,0 +1,32 @@
+name: Scheduled Run
+
+on:
+  schedule:
+    #- cron: '*/5 * * * *' # every 5 minutes
+    - cron: '0 1 * * *' #At 01:00.
+  workflow_dispatch:
+
+
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    env:
+      VERTICA_USER: ${{ secrets.VERTICA_USER }}
+      VERTICA_PASSWORD: ${{ secrets.VERTICA_PASSWORD }}
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          
+      - name: Install dbt
+        run: pip3 install dbt-vertica
+
+      - name: Deploy & Test Models (CI)
+        run: dbt build --profiles-dir . --target dev
+        
