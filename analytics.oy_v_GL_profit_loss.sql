@@ -60,6 +60,8 @@ left join 		raw.odoo__account_account aa on gl.account_id =aa.id
 left join 		raw.odoo__res_currency c on gl.currency_id =c.id
 left join 		raw.odoo__res_company rc on rc.id=gl.company_id 
 left join 		raw.odoo__res_country co on co.id =gl.partner_country_id 
-where 			aa.code in ('410001','410002','410003','410004','410005','612033','511001','511002','511003','511004','511005','511007','511008','512001','512002','512003','513002','513003','514001','514002','515001','515002')
+where 			aa.code in ('410001','410002','410003','410004','410005','612033','511001','511002','511003','511004','511005','511007','511008','512001','512002','512003','513002','513003','514001','514002','515001','515002'
+, '42003' /*Conversation UAE*/
+, '420005' /*KSA*/)
 				and gl.parent_state='posted'
 ;
