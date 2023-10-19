@@ -1,24 +1,10 @@
-with revenue as
-(
-select 			ad.First_date, ad.Year, ad.Month, ad.Client_ID, ad.Client_Name, ad.business_domain
-				, case 	when year(ad.First_date) = year(now()) and month(ad.First_date)>=month(now()) then null 
-						when Revenue_USD is null then 0 else Revenue_USD 
-				end as Revenue_USD
-from 			{{ ref('oy_dbt_ndr_accounts_dates')}} as ad -- analytics.oy_dbt_ndr_accounts_dates
-left join		{{ source('analytics', 'oy_v_GL_revenue_all_domains')}} as rev -- analytics.oy_v_GL_revenue_all_domains
-on				ad.First_date = rev.first_date
-				and ad.Client_ID = rev.Client_ID
-				and ad.Client_Name = rev.Client_Account_Name
-				and ad.business_domain = rev.business_domain
---order by 	ad.Client_ID, ad.business_domain, ad.first_date
-),
-ytd_revenue as 
+with ytd_revenue as 
 (
 select 			*
 				, sum(Revenue_USD) over (partition by Client_ID, business_domain, year order by First_date 
 											ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) 
 				as YTD_Revenue
-from 			revenue
+from 			{{ ref('oy_dbt_revenue_union') }}
 ),
 lag_rev as
 (
@@ -55,8 +41,8 @@ from			ndr1
 hs as
 (
 select 			distinct
-				odoo_id, odoo_name, hs_team, hs_manager, tcsm_manager
-from 			{{ source('analytics', 'oy_v_odoo_hs_team_manager')}} -- analytics.oy_v_odoo_hs_team_manager
+				odoo_id, hs_team, hs_manager, tcsm_manager
+from 			{{ source('analytics', 'oy_dbt_odoo_hs_team_manager_distinct')}} -- analytics.oy_v_odoo_hs_team_manager
 where 			hs_team is not null and hs_manager is not null
 order by 		hs_manager
 ),

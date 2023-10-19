@@ -7,8 +7,8 @@ accounts as
 (
 select 		distinct Client_ID, Client_Account_Name as Client_Name, business_domain
 			, 2021 as '2021', 2022 as '2022', 2023 as '2023', 2024 as '2024'
-from 		{{ source('analytics', 'oy_v_GL_revenue_all_domains')}} -- verticadb"."analytics.oy_v_GL_revenue_all_domains
-where       Client_ID is not null
+from 		{{ source('analytics', 'oy_dbt_GL_revenue_all_domains')}} -- verticadb"."analytics.oy_v_GL_revenue_all_domains
+--where       Client_ID is not null
 )
 select 		First_date, dt.Year::VARCHAR , Month
 			, COALESCE (ac1.Client_ID, ac2.Client_ID, ac3.Client_ID, ac4.Client_ID) as Client_ID
