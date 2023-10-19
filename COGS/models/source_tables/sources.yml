@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: raw
+    config:
+      enabled: true
+    description: 'raw schema'
+    database: verticadb
+    schema: raw
+    tables:
+      - name: mprocra__abl_operator_prices
+        description: 'Dayna A updates the file on a regular basis'
+        config:
+          enabled: true
+  - name: aggregate
+    config:
+      enabled: true
+    description: 'aggregate schema'
+    database: verticadb
+    schema: aggregate
+    tables:
+      - name: fact_sms_traffic_operator_aggregate
+        description: 'fact_sms_traffic_operator_aggregate'
+        config:
+          enabled: true
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_v_master_account_mapping
+        description: 'lm_v_master_account_mapping'
+        config:
+          enabled: true
+      - name: oy_dbt_traffic_operator_agg_KSA
+        description: 'oy_dbt_traffic_operator_agg_KSA'
+        config:
+          enabled: true
