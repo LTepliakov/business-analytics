@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: raw
+    config:
+      enabled: true
+    description: 'raw tables.'
+    database: verticadb
+    schema: raw
+    tables:
+      - name: freshdesk__tickets
+        description: 'freshdesk__tickets.'
+        config:
+          enabled: true
+      - name: freshdesk__agents
+        description: 'freshdesk__agents.'
+        config:
+          enabled: true
+      - name: freshdesk__groups
+        description: 'freshdesk__groups.'
+        config:
+          enabled: true
+      - name: freshdesk__companies
+        description: 'freshdesk__companies.'
+        config:
+          enabled: true
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_v_master_account_mapping
+      - name: oy_dbt_consumption_agg
