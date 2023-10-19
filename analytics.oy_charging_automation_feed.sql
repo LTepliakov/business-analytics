@@ -30,7 +30,7 @@ ON 			al.Master_Account_ID = tm.odoo_id
 LEFT JOIN 	raw.unifonic_cloud__account as uc
 ON 			al.UC_Account_ID_L0 = uc.id
 ------------
-ORDER BY 	al.Odoo_ID_L0
+--ORDER BY 	al.Odoo_ID_L0
 ;
 select * from analytics.oy_charging_automation_feed
 ;

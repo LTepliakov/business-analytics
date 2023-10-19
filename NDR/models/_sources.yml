@@ -8,11 +8,11 @@ sources:
     database: verticadb
     schema: analytics
     tables:
-      - name: oy_v_GL_revenue_all_domains
+      - name: oy_dbt_GL_revenue_all_domains
         description: 'Revenue by accounts and domains.'
         config:
           enabled: true
-      - name: oy_v_odoo_hs_team_manager
+      - name: oy_dbt_odoo_hs_team_manager_distinct
         description: 'Odoo Hubspot mapping.'
         config:
           enabled: true

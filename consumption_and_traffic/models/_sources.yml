@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: standard
+    config:
+      enabled: true
+    description: 'standard schema source tables.'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_accounts
+        description: 'Accounts details.'
+        config:
+          enabled: true
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: oy_dbt_cost_update_Dyana_B
+        description: 'Odoo-UC accounts mapping.'
+        config:
+          enabled: true
+      - name: lm_v_master_account_mapping
+        description: 'Odoo-UC accounts mapping.'
+        config:
+          enabled: true
+      - name: oy_dbt_odoo_hs_team_manager_distinct
+        description: 'Dedupped oy_v_odoo_hs_team_manager.'
+        config:
+          enabled: true
+      - name: oy_dbt_special_accounts
+        description: 'oy_dbt_special_accounts.'
+        config:
+          enabled: true
+      - name: oy_dbt_sales_plans_gsheet
+        description: 'oy_dbt_special_accounts.'
+        config:
+          enabled: true
+  - name: raw
+    config:
+      enabled: true
+    description: 'raw schema source tables.'
+    database: verticadb
+    schema: raw
+    tables:
+      - name: ocs__balance
+        description: 'Daily balance snapshot from OCS.'
+        config:
+          enabled: true
+      - name: ocs__account
+        description: 'The table with charging_id to link ocs__balance table with the UC consumption.'
+        config:
+          enabled: true
+      - name: pd__pd_esmes
+        description: 'pd__pd_esmes.'
+        config:
+          enabled: true
+  - name: aggregate
+    config:
+      enabled: true
+    description: 'aggregate schema source tables.'
+    database: verticadb
+    schema: aggregate
+    tables:
+      - name: fact_sms_consumption_aggregate
+        description: 'UC aggregate consumption.'
+        config:
+          enabled: true
+      - name: fact_sms_traffic_operator_aggregate
+        description: 'fact_sms_traffic_operator_aggregate.'
+        config:
+          enabled: true

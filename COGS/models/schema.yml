@@ -1,0 +1,9 @@
+
+version: 2
+
+models:
+  - name: oy_dbt_cost_update_Dyana_B
+    description: "N/A"
+    columns:
+      - name: id
+        description: "N/A"

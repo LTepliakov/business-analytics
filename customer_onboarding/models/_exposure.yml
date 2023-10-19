@@ -1,0 +1,43 @@
+version: 2
+
+exposures:
+
+  - name: Petar M - onboarding_to_consumption_time_KPI
+    label: Metabase - Petar M - onboarding_to_consumption_time_KPI
+    type: dashboard                         # required
+    #maturity: high                          # optional
+    url: https://metabase-data.prod.oci.ksa.cloud.unifonic.com/question/214-petar-m-onboarding-to-consumption-time-kpi
+    description: >                          # optional
+      Onboarding_to_consumption_time_KPI.
+    depends_on:                             # expected
+      - ref('oy_dbt_onboarding_to_consumption_time_KPI')
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com
+
+  - name: Petar M - Consumption Threshold hit at a date
+    label: Metabase - Petar M - Consumption Threshold hit at a date
+    type: dashboard                         # required
+    #maturity: high                          # optional
+    url: https://metabase-data.prod.oci.ksa.cloud.unifonic.com/question/234-petar-m-consumption-threshold-hit-at-a-date
+    description: >                          # optional
+      Consumption Threshold hit at a date.
+    depends_on:                             # expected
+      - ref('oy_dbt_consumption_start_date_concize')
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com
+
+  - name: Petar M - unmapped onboarding tickets
+    label: Metabase - Petar M - unmapped onboarding tickets
+    type: dashboard                         # required
+    #maturity: high                          # optional
+    url: https://metabase-data.prod.oci.ksa.cloud.unifonic.com/question/215-petar-m-unmapped-onboarding-tickets
+    description: >                          # optional
+      Unmapped onboarding tickets.
+    depends_on:                             # expected
+      - ref('oy_dbt_customer_onboarding_dedupped')
+      - ref('oy_dbt_onboarding_to_consumption_time')
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com

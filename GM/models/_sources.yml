@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      # - name: oy_dbt_traffic_operator_agg_KSA
+      #   description: 'oy_dbt_traffic_operator_agg_KSA.'
+      #   config:
+      #     enabled: true
+      - name: oy_dbt_consumption_agg_sms_KSA
+        description: 'oy_dbt_consumption_agg_sms_KSA.'
+        config:
+          enabled: true
+      - name: oy_dbt_KSA_COGS_excl_failover
+        description: 'oy_dbt_KSA_COGS_excl_failover.'
+        config:
+          enabled: true

@@ -1,8 +1,8 @@
-
-{{config (materialized='table')}} 
+{{config (materialized='view')}} 
 
 select 		LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
-            , event_type
+            , ca.event_type
+            , ca.general_ledger_code
             , date(ca.hour_nk) as date_nk
             , ca.account_id as charging_id
             , da.pd_user_id
@@ -43,16 +43,10 @@ left join 	(
 			) as lmm
 on 			ca.account_id = lmm.Charging_ID_L0
 -------
-left join 	(
-				select 		distinct
-							odoo_id, odoo_name, email, hs_team, hs_manager, hs_email, tcsm_manager
-				from 		{{ source('analytics', 'oy_v_odoo_hs_team_manager')}} --analytics.oy_v_odoo_hs_team_manager
-				where 		hs_team is not null and hs_manager is not null
-				order by 	hs_manager
-			) as tm 
+left join 	{{ source('analytics', 'oy_dbt_odoo_hs_team_manager_distinct')}} as tm 
 on 			tm.odoo_id = lmm.Master_Account_ID
 -------
-left join	{{ ref('oy_dbt_special_accounts')}} as sa --analytics.oy_special_accounts
+left join	{{ ref('oy_dbt_special_accounts')}} as sa
 on 			ca.account_id = sa.charging_id
 -------
 left join 	(
@@ -63,6 +57,6 @@ left join 	(
 on 			lmm.Master_Account_ID = top40."Odoo ID"
 -------
 where	    lmm.Master_Account_Name <> 'migration traffic'
-            and ca.event_type is not NULL
-group by	1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
+            --and ca.event_type is not NULL
+group by	1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22
 order by 	date(ca.hour_nk) desc
