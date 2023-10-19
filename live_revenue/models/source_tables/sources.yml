@@ -31,6 +31,10 @@ sources:
         description: 'Hubspot-UC mapping of UC accounts against HS Teams and Account Managers.'
         config:
           enabled: true
+      - name: oy_dbt_odoo_hs_team_manager_distinct
+        description: 'Dedupped oy_v_odoo_hs_team_manager.'
+        config:
+          enabled: true
   - name: raw
     config:
       enabled: true
@@ -55,5 +59,9 @@ sources:
     tables:
       - name: fact_sms_consumption_aggregate
         description: 'UC aggregate consumption.'
+        config:
+          enabled: true
+      - name: fact_sms_traffic_operator_aggregate
+        description: 'fact_sms_traffic_operator_aggregate.'
         config:
           enabled: true

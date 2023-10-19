@@ -141,15 +141,10 @@ select 		--distinct
 			, analytics_selling_rate
 			, manual_sell_rate
 			, parent_selling_rate
+			, general_ledger_code
 			, tm.hs_team , tm.hs_manager, tm.tcsm_manager
 from 		base
-left join 	(
-				select 		distinct
-							odoo_id, odoo_name, email, hs_team, hs_manager, hs_email, tcsm_manager
-				from 		{{ source('analytics', 'oy_v_odoo_hs_team_manager')}} --analytics.oy_v_odoo_hs_team_manager
-				where 		hs_team is not null and hs_manager is not null
-				order by 	hs_manager
-			)as tm 
+left join 	{{ source('analytics', 'oy_dbt_odoo_hs_team_manager_distinct')}} as tm 
 on 			tm.odoo_id = base.Master_Account_ID
 where 		1=1 --and charging_id = 20002456 --Saudi Abyat for Building Materials OCS anomaly https://docs.google.com/spreadsheets/d/1ryZh7N_7zbnhgZIaLkCv2u2TzWuXBn1CY02ZKPbZEtY/edit?usp=sharing
 --order by 	charging_id, date_nk

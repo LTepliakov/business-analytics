@@ -17,6 +17,7 @@ select 		LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
                     when ca.bundle_name in ('20000600_UAE All Operators') then 'Tabby FZ-LLC' -- Tabby
                     else null 
                 end as manual_odoo_name
+            , ca.general_ledger_code
             , sum(units) as units, sum(charge) as charge, sum(revenue) as cdr_revenue
             , case 	when sum(units)=0 then null
                     when split_part(trim(ca.bundle_name), '_', 2)='package' then ROUND(sum(revenue)/sum(charge),8)
@@ -25,8 +26,9 @@ select 		LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
 from 		{{ source('aggregate', 'fact_sms_consumption_aggregate')}} as ca --aggregate.fact_sms_consumption_aggregate 
 left join 	{{ source('standard', 'dim_accounts') }} as da --standard.dim_accounts as da
 on 			ca.account_id = da.charging_id
-where 		ca.event_type = 'default.sms'
+where 		1=1
+            and (ca.event_type = 'default.sms' or general_ledger_code='Forfeiture Of Package Balance')
             and date(hour_nk) >= '2023-01-01'
             --and ca.account_id = 114
-group by	1,2,3,4,5,6,7,8,9,10
+group by	1,2,3,4,5,6,7,8,9,10,11
 order by 	date(ca.hour_nk) desc
