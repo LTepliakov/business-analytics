@@ -1,0 +1,21 @@
+version: 2
+
+exposures:
+
+  - name: Gross_Margin
+    #label: Jaffles by the Week              # optional, new in dbt Core v1.3
+    type: dashboard                         # required
+    #maturity: high                          # optional
+    url: https://tableau.data.ksa-1.oci.cloud.unifonic.com/views/GrossMargin/KSAGrossMargin?:origin=card_share_link&:embed=n      # optional
+    description: >                          # optional
+      This is the ........
+
+    depends_on:                             # expected
+      - ref('oy_dbt_gross_margin_KSA')
+      - ref('oy_dbt_revenue_sms_KSA')
+      #- source('analytics', 'oy_v_GL_revenue_reference') #tables names
+      #metric('consumption', 'selling_rates')
+
+    owner:
+      name: Oleg Yun
+      email: oyun@unifonic.com

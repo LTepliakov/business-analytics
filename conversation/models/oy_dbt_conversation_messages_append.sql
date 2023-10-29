@@ -27,6 +27,6 @@ left join 	    {{ source('analytics', 'lm_v_master_account_mapping') }} as lm
 on 			        fc.account_id =lm.UC_Account_ID_L0
 ----------------
 where 		      year(fc.created_at) = 2023
-                and month(created_at) > 6
+                and month(created_at) > 9
 ----------------
 group by  	    1,2,3,4,5,6,7,8,9,10,11

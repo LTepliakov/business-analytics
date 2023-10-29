@@ -8,6 +8,7 @@ select 		    Master_Account_ID
                 , round(sum(Revenue_USD),0) as Revenue_USD 
 from		    {{ source('analytics', 'oy_dbt_consumption_agg_sms_KSA')}}
 where 		    date_nk>='2023-08-01'
+                and date_nk <= '2023-10-10' -- this filter is because from '2023-10-12' Alinma bank started to consume mb. I'll remove this filter later.
 group by 	    1,2,3
 order by 	    Master_Account_ID 
 )

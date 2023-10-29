@@ -21,7 +21,7 @@ select 		id as fs_ticket_id
 			--, subject, description_text 
 from 		{{ source('raw','freshdesk__tickets')}}
 where 		type = 'Onboarding Request'
-			and company_id is not null
+			--and company_id is not null
 )
 select 		companies.custom__fields_odoo_id as fs_odoo_id
 			, companies.name as fs_company_name
