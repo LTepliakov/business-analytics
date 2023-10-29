@@ -1,4 +1,5 @@
 target/compiled
 target/run
+target/manifest.json
 dbt_packages/
 logs/

@@ -8,7 +8,7 @@ select 	        LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
                 , da.pd_user_id
                 , da.pd_user_account_name
                 , ca.bundle_name
-                , case when split_part(ca.bundle_name,'_',2)='mb' then 'mb' else 'package' end as bundle_type
+                , ca.bundle_type
                 , da.pd_user_country
                 , case 	when ca.bundle_name in ('10002202_UAE All Operators', '10002202_mb') then '9598' -- Tamara
                         when ca.bundle_name in ('20000600_UAE All Operators') then '10168' -- Tabby
@@ -35,14 +35,15 @@ select 	        LAST_DAY(ADD_MONTHS(hour_nk, -1)) + 1 as rep_month
                         then ca.country_id||'/'||ca.operator_id||'/'||ca.network_name
                         else null
                         end as cost_id
-                , ca.current_selling_rate_value
+                , ca.current_selling_rate_value as ocs_selling_rate
                 , sum(units) as units
                 , sum(charge) as charge
+                , sum(chargeable_units) as chargeable_units
                 , sum(case  when split_part(ca.bundle_name,'_',2)='mb' then charge
                         else ca.charge*ca.current_selling_rate_value
                         end
                 ) as Revenue_USD
-from 		{{ source('aggregate', 'fact_sms_consumption_aggregate')}} as ca --aggregate.fact_sms_consumption_aggregate 
+from 		{{ ref('oy_dbt_fact_sms_consumption_aggregate_stg')}} as ca --aggregate.fact_sms_consumption_aggregate 
 left join 	{{ source('standard', 'dim_accounts') }} as da --standard.dim_accounts as da
 on 			ca.account_id = da.charging_id
 -------

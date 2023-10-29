@@ -2,4 +2,6 @@
 
 select * from {{ source('analytics', 'oy_conversation_messages_2023_H1') }}
 union
+select * from {{ source('analytics', 'oy_conversation_messages_2023_Q3') }}
+union
 select * from {{ ref('oy_dbt_conversation_messages_append') }}
