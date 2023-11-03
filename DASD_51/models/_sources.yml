@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: oy_dbt_seed_DASD_50_parent_child_accounts
+      - name: lm_v_master_account_mapping
+      - name: oy_dbt_consumption_agg
