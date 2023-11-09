@@ -38,3 +38,14 @@ sources:
         description: 'oy_dbt_traffic_operator_agg_KSA'
         config:
           enabled: true
+  - name: standard
+    config:
+      enabled: true
+    description: 'standard schema'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: fact_acdr
+        description: 'fact_acdr'
+        config:
+          enabled: true
