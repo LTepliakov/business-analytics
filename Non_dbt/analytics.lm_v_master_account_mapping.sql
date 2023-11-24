@@ -62,19 +62,19 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
  FROM 			
                 standard.dim_accounts as a1 
                 JOIN standard.dim_users u1 on a1.owner_id=u1.user_nk 
-                LEFT JOIN 	raw.odoo__res_partner as p1 ON ((p1.id = a1.erp_id))
+                LEFT JOIN 	raw.odoo__res_partner as p1 ON ((p1.uc_customer_id = a1.customer_id))
                 
                 LEFT JOIN 	standard.dim_accounts as a2 ON ((a1.parent_account_nk = a2.account_nk))
                 LEFT JOIN   standard.dim_users u2 on a2.owner_id=u2.user_nk 
-                LEFT JOIN 	raw.odoo__res_partner as p2 ON ((p2.id = a2.erp_id))
+                LEFT JOIN 	raw.odoo__res_partner as p2 ON ((p2.uc_customer_id = a2.customer_id))
                  
                 LEFT JOIN 	standard.dim_accounts as a3 ON ((a2.parent_account_nk = a3.account_nk))
                 LEFT JOIN   standard.dim_users u3 on a3.owner_id=u3.user_nk 
-                LEFT JOIN 	raw.odoo__res_partner as p3 ON ((p3.id = a3.erp_id))
+                LEFT JOIN 	raw.odoo__res_partner as p3 ON ((p3.uc_customer_id = a3.customer_id))
                  
                 LEFT JOIN 	standard.dim_accounts as a4 ON ((a3.parent_account_nk = a4.account_nk))
                 LEFT JOIN   standard.dim_users u4 on a4.owner_id=u4.user_nk 
-                LEFT JOIN 	raw.odoo__res_partner as p4 ON ((p4.id = a4.erp_id))
+                LEFT JOIN 	raw.odoo__res_partner as p4 ON ((p4.uc_customer_id = a4.customer_id))
                 
  )
  select 		*
@@ -108,5 +108,4 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 					   else null 
 				  end as manual_odoo_name
  from  			base
- 
  
