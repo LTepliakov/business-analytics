@@ -1,4 +1,5 @@
 
+
 drop view if exists analytics.lm_v_master_account_mapping
 ;
 create view analytics.lm_v_master_account_mapping as
@@ -11,6 +12,7 @@ SELECT 			a1.account_nk AS UC_Account_ID_L0,
 		        a1.pd_user_country as UC_Account_Country_L0,
 		        a1.charging_id AS Charging_ID_L0,
 		        a1.pd_user_id as PD_User_ID_L0,
+		        a1.pd_user_status as Account_Status,
 		        a1.customer_id as Customer_ID_L0,
 		        p1.id AS Odoo_ID_L0,
 		        p1.name AS Odoo_Account_Name_L0,
