@@ -1,5 +1,5 @@
 {{ config(materialized = 'table') }}
-{% set days_ago = 8 %}
+{% set days_ago = 19 %}
 
 {% for N in range(days_ago) %}
 	(

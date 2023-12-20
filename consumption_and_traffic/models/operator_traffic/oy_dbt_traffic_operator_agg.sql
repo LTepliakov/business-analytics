@@ -1,6 +1,6 @@
 {{config (materialized='table')}}
 
-select 		    t.date_hour::DATE as date_nk
+select 		    t.date_nk
                 , t.charging_id
                 , lmm.Master_Account_ID
                 , lmm.Master_Account_Name
@@ -12,7 +12,7 @@ select 		    t.date_hour::DATE as date_nk
                 , t.country_id||'/'||t.operator_id||'/'||t.network_name  as cost_id
                 , t.event_status
                 , sum(t.units) as units
-from 		    {{ source('aggregate', 'fact_sms_traffic_operator_aggregate') }} as t 
+from 		    {{ ref('oy_dbt_traffic_operator_agg_stg') }} as t 
 ----------------
 left join 	    {{ ref('oy_dbt_lm_mapping')}} as lmm
 on   			t.charging_id = lmm.Charging_ID_L0

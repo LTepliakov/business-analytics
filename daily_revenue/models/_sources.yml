@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: oy_dbt_fact_sms_consumption_aggregate_stg
+        description: 'oy_dbt_fact_sms_consumption_aggregate_stg.'
+        config:
+          enabled: true
