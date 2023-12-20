@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: aggregate
+    description: 'aggregate schema source tables.'
+    database: verticadb
+    schema: aggregate
+    tables:
+      - name: fact_sms_aggregate_daily_view
+        description: 'fact_sms_aggregate_daily_view.'
+  - name: analytics
+    description: 'analytics schema source tables.'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_v_master_account_mapping
+        description: 'lm_v_master_account_mapping.'
+      - name: oy_dbt_dim_countries
+        description: 'oy_dbt_dim_countries.'
+      - name: oy_dbt_dim_operators
+        description: 'oy_dbt_dim_operators.'
+      - name: oy_dbt_networks
+        description: 'oy_dbt_networks.'
+      - name: oy_dbt_fact_sms_consumption_aggregate_stg
+        description: 'oy_dbt_fact_sms_consumption_aggregate_stg.'
+      - name: oy_dbt_traffic_operator_agg_stg
+        description: 'oy_dbt_traffic_operator_agg_stg.'
+  - name: standard
+    description: 'standard schema source tables.'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_fcdr_accounts
+        description: 'dim_fcdr_accounts.'

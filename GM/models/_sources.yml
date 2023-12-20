@@ -16,7 +16,19 @@ sources:
         description: 'oy_dbt_consumption_agg_sms_KSA.'
         config:
           enabled: true
+      - name: oy_dbt_consumption_agg_sms
+        description: 'oy_dbt_consumption_agg_sms.'
+        config:
+          enabled: true
       - name: oy_dbt_KSA_COGS_excl_failover
         description: 'oy_dbt_KSA_COGS_excl_failover.'
+        config:
+          enabled: true
+      - name: oy_dbt_consumption_agg_sms_International_acc_level
+        description: 'oy_dbt_consumption_agg_sms_International_acc_level.'
+        config:
+          enabled: true
+      - name: oy_dbt_avg_cost_rate_account_agg
+        description: 'oy_dbt_avg_cost_rate_account_agg.'
         config:
           enabled: true

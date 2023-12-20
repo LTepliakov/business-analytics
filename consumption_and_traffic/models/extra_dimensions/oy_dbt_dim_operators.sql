@@ -1,3 +1,5 @@
+{{ config(materialized='view')}}
+
 with base as
 (
 select 		DISTINCT operator_id, operator_name  
@@ -15,4 +17,5 @@ from 		base
 )
 select 		*
 from 		cnt
-where 		operator_name_cnt > 1
+where 		1=1
+			--and operator_name_cnt > 1

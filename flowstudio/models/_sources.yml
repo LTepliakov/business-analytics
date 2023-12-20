@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: standard
+    config:
+      enabled: true
+    description: 'standard schema'
+    database: verticadb
+    schema: standard
+    tables:
+      - name: dim_flowstudio_flows
+        description: 'dim_flowstudio_flows.'
+        config:
+          enabled: true
+      - name: dim_flowstudio_flow_widgets
+        description: 'dim_flowstudio_flow_widgets.'
+        config:
+          enabled: true
+      - name: fact_flowstudio_flow_executions
+        description: 'fact_flowstudio_flow_executions.'
+        config:
+          enabled: true
+      - name: fact_flowstudio_flow_widget_executions
+        description: 'fact_flowstudio_flow_widget_executions.'
+        config:
+          enabled: true
+  - name: analytics
+    config:
+      enabled: true
+    description: 'analytics schema'
+    database: verticadb
+    schema: analytics
+    tables:
+      - name: lm_v_master_account_mapping
+        description: 'lm_v_master_account_mapping'
+        config:
+          enabled: true

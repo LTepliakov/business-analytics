@@ -1,3 +1,5 @@
+{{ config(materialized='view')}}
+
 with base as
 (
 select 		DISTINCT network_id, network_name  
