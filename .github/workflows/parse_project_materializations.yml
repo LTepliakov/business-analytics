@@ -1,5 +1,5 @@
 name: Parse DBT materializations
-run-name: Parsing materializations after pusy by ${{ github.actor }} 🚀
+run-name: Parsing materializations after push by ${{ github.actor }} 🚀
 on: [push]
 jobs:
   Parse-Materializations:
